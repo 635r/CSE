@@ -1,10 +1,11 @@
 # Type Guess Beneath
-guess = 24
-
 import random
 print(random.randint(0, 50))
 
 num = random
+
+
+guess = 24
 
 
 def guess_num(num):
@@ -12,3 +13,5 @@ def guess_num(num):
         return "lower"
     elif num <= guess:
         return "higher"
+
+def tries
