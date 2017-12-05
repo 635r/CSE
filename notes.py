@@ -106,3 +106,20 @@ print("Hello \nWorld")
 
 import random
 print(random.randint(0, 6))
+
+
+#two equal sings to compare
+print(1 == 1)
+
+print(1 != 2)
+print(not False)
+print(1 == 1 and 4 <= 5)
+print(1 < 0 or 5> 1)
+
+
+c = "1"
+print(c == 1)       # False since C is a string and
+
+print (int(c) == 1)
+
+print(c == str(1))

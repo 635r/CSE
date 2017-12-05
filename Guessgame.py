@@ -1,17 +1,20 @@
-# Type Guess Beneath
 import random
-print(random.randint(0, 50))
 
-num = random
+str()
+num = random.randint(1, 50)
+print(num)
+response = ""
 
 
-guess = 24
+while response != num:
+    response = input("GuesstheNumber ")
+Guess = input('GuesstheNumber')
 
 
-def guess_num(num):
-    if num >= guess:
+
+
+def compare_number(num):
+    if num >= Guess:
         return "lower"
-    elif num <= guess:
+    elif num <= Guess:
         return "higher"
-
-def tries
