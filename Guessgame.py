@@ -1,20 +1,18 @@
 import random
 
-str()
-num = random.randint(1, 50)
-print(num)
-response = ""
+
+number = random.randint(1, 50)
+print(number)
+
+right_guess = number
 
 
-while response != num:
-    response = input("GuesstheNumber ")
-Guess = input('GuesstheNumber')
+while turns_left > 0 and right_guess is False:
+    answer = int(input(yeet))
+    if answer == right_guess
+        return("NOICE")
+    if answer >
+    print(number == str(random.randint(1, 50)))
 
+turnd_left: 5
 
-
-
-def compare_number(num):
-    if num >= Guess:
-        return "lower"
-    elif num <= Guess:
-        return "higher"
