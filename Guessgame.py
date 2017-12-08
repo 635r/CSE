@@ -7,7 +7,6 @@ right_guess = False
 turns_left = 5
 
 
-
 while turns_left > 0 and right_guess is False:
     answer = int(input("try and guess"))
     if answer == number:
@@ -22,5 +21,4 @@ while turns_left > 0 and right_guess is False:
 
 
 if turns_left is 0:
-    print ("soory you got hecked. This was the number %s." % number)
-
+    print("sory you got hecked. This was the number %s." % number)
