@@ -1,12 +1,14 @@
 import random
 
+#Initializing Variables
+
 number = random.randint(1, 50)
 
 right_guess = False
 
 turns_left = 5
 
-
+#Describes exactly ONE turn. The while loop is the GAME CONTROLLER
 while turns_left > 0 and right_guess is False:
     answer = int(input("try and guess"))
     if answer == number:
