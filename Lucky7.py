@@ -2,8 +2,11 @@ import random
 
 num_rolls = 0
 
-
 money_left = 15
+
+high_point = 0
+
+max_money = 0
 
 while money_left > 0:
 
@@ -13,13 +16,14 @@ while money_left > 0:
 
     num = die + dice
 
-    high_point = 0
-
     if num == 7:
         print("NOICE")
         money_left += 4
         num_rolls += 1
         print("you have %s buck(s)" % money_left)
+
+    if money_left > max_money
+        money_left = max_money
 
     elif num != 7:
         print("oof")
@@ -28,7 +32,11 @@ while money_left > 0:
         print("you have %s buck(s) left" % money_left)
 
 if money_left is 0:
-    
-    print("Gambling is a sin")
+
     print("you rolled %s times" % num_rolls)
-    print("you should have stopped at %s" % high_point)
+
+    print("Gambling is a sin")
+
+    print("You should have stopped at %s" % high_point)
+
+    print ("while you had %s" % max_money)
