@@ -8,6 +8,9 @@ high_point = 0
 
 max_money = 0
 
+stop = 0
+
+
 while money_left > 0:
 
     die = random.randint(1, 6)
@@ -16,14 +19,16 @@ while money_left > 0:
 
     num = die + dice
 
+    if max_money < money_left:
+        max_money = money_left
+
+    if
+
     if num == 7:
         print("NOICE")
         money_left += 4
         num_rolls += 1
         print("you have %s buck(s)" % money_left)
-
-    if money_left > max_money
-        money_left = max_money
 
     elif num != 7:
         print("oof")
@@ -39,4 +44,6 @@ if money_left is 0:
 
     print("You should have stopped at %s" % high_point)
 
-    print ("while you had %s" % max_money)
+    print("while you had %s bucks" % max_money)
+
+
