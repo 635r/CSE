@@ -1,3 +1,4 @@
+#Alek Ledesma PERIOD 7  1/16/18
 import random
 
 num_rolls = 0
@@ -8,8 +9,6 @@ high_point = 0
 
 max_money = 0
 
-stop = 0
-
 
 while money_left > 0:
 
@@ -19,16 +18,15 @@ while money_left > 0:
 
     num = die + dice
 
-    if max_money < money_left:
-        max_money = money_left
-
-    if
-
     if num == 7:
         print("NOICE")
         money_left += 4
         num_rolls += 1
         print("you have %s buck(s)" % money_left)
+
+        if max_money < money_left:
+            max_money = money_left
+            high_point = num_rolls
 
     elif num != 7:
         print("oof")
@@ -42,8 +40,6 @@ if money_left is 0:
 
     print("Gambling is a sin")
 
-    print("You should have stopped at %s" % high_point)
+    print("You should have stopped at round %s" % high_point)
 
     print("while you had %s bucks" % max_money)
-
-
