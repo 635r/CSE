@@ -152,5 +152,25 @@ listOne[11] = '.'
 newStr = ''.join(listOne)
 print(newStr)
 
-#
+print(listOne[-2])
 
+# adding to a list
+characters.append('batman')
+characters.append('Francis of the Filth')
+print(characters)
+
+
+#removing characters from a list
+characters.remove("shrek")
+print(characters)
+
+#string class
+import string
+print(string.ascii_letters)
+print(string.ascii_lowercase)
+print(string.digits)
+print(string.punctuation)
+
+strTwo = 'WHAt iF tHe hATErs dAb BAck?...'
+lowercase = strTwo.lower()
+print(lowercase)
