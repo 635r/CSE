@@ -227,4 +227,4 @@ largest_dictionary = {
     }
 }
 
-print(largest_dictionary["MI"])
+print(largest_dictionary["MI"]["BORDER ST"][1])
