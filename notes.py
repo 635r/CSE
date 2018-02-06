@@ -186,6 +186,9 @@ print(dictionary["name"])
 print(dictionary["age"])
 print(dictionary["height"])
 
+dictionary["eye color"] = "blue"
+dictionary["paper towels"] = True
+
 large_dictionary = {
     "California": "CA",
     "Florida" : "FL",
@@ -228,3 +231,5 @@ largest_dictionary = {
 }
 
 print(largest_dictionary["MI"]["BORDER ST"][1])
+
+
