@@ -1,8 +1,7 @@
 world_map = {
     "WESTHOUSE": {
         "NAME": "WEST OF HOME",
-        "DESCRIPTION": "You are west of a Tikkki Head"
-                       "To the East of a rock. You're to afraid to take another step near it",
+        "DESCRIPTION": "All of your friend's houses lie east of your home(which is were you are)"
         "PATHS": {
             "NORTH": "NORTHHOUSE",
             "SOUTH": "SOUTHHOUSE",
