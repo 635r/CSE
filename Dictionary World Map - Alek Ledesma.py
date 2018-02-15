@@ -24,7 +24,24 @@ world_map = {
     "WESTHOUSE": {
         "NAME": "WEST OF HOME",
         "DESCRIPTION": "fub"
+    },
+    "OWLSHOUSE": {
+        "NAME": "Owl's house",
+        "DESCRIPTION": "high up in the trees, you see Owl reading. You wave, but he's to caught up in it"
+    },
+    "EEYORESHOUSE": {
+        "NAME":"Eeyore's house",
+        "DESCRIPTION": "It's a sad little place. You see Eeyore asleep in his stick tent"
+    },
+    "RABITSFAMRANGE": {
+        "NAME": "Rabbit's Family Range",
+        "DESCRIPTION": "Rabbit appears to have quite the family tree"
+    },
+    "RABBITSHOUSE": {
+        "NAME": "Rabbit's house",
+        "DESCRIPTION": "You see Rabbit tending to his garden. It's right outside of his burrow"
     }
+
 }
 
 current_node = world_map["HOME"]

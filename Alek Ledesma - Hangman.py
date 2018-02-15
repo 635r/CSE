@@ -42,7 +42,7 @@ while guess_left > 0:
     if guess_left == 0:
         print("hey stop loosing")
         print("the word was %s" % word)
-        quit()
+        quit(0)
 
 print("after you guess all the letters, press enter again")
 
