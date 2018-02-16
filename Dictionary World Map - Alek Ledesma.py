@@ -40,6 +40,22 @@ world_map = {
     "RABBITSHOUSE": {
         "NAME": "Rabbit's house",
         "DESCRIPTION": "You see Rabbit tending to his garden. It's right outside of his burrow"
+    },
+    "100AKER": {
+        "NAME": "100 Aker Woods",
+        "DESCRIPTION": "These woods could be like 100 ackers long"
+    },
+    "POOHSHOUSE": {
+        "NAME": "Pooh Bear's house",
+        "DESCRIPTION": "It would apear that Pooh has already gone to the BEE TREE"
+    },
+    "WOOZLEWASN'T": {
+        "NAME": "Where the Woozle Wasn't",
+        "DESCRIPTION": "You notice a distinct lack of Woozle"
+    },
+    "FLOODY": {
+        "NAME": "Floody Place",
+        "DESCRIPTION": "This place floods every now and then during the floody season"
     }
 
 }
@@ -61,4 +77,4 @@ while True:
             print("You can't go that way boi")
     else:
         print("I don't get it")
-        print()
+        print(0)
