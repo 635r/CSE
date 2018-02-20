@@ -11,11 +11,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Dictionary World Map - Alek Ledesma.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Dictionary World Map - Alek Ledesma.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Dictionary World Map - Alek Ledesma.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="57" column="86" lean-forward="true" selection-start-line="57" selection-start-column="86" selection-end-line="57" selection-end-column="86" />
+            <state relative-caret-position="107">
+              <caret line="57" column="86" lean-forward="false" selection-start-line="57" selection-start-column="86" selection-end-line="57" selection-end-column="86" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="notes.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/notes.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="185">
+              <caret line="283" column="20" lean-forward="false" selection-start-line="283" selection-start-column="20" selection-end-line="283" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -46,16 +56,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="714">
               <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="notes.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/notes.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3213">
-              <caret line="189" column="33" lean-forward="false" selection-start-line="189" selection-start-column="33" selection-end-line="189" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -128,10 +128,10 @@
         <option value="$PROJECT_DIR$/BlackJack.py" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_2.py" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/Hangman.py" />
-        <option value="$PROJECT_DIR$/notes.py" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_3.py" />
         <option value="$PROJECT_DIR$/Alek Ledesma - Hangman.py" />
         <option value="$PROJECT_DIR$/Dictionary World Map - Alek Ledesma.py" />
+        <option value="$PROJECT_DIR$/notes.py" />
       </list>
     </option>
   </component>
@@ -174,7 +174,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Dictionary World Map - Alek Ledesma">
+  <component name="RunManager" selected="Python.notes">
     <configuration name="Alek Ledesma - Hangman" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -287,9 +287,9 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.Dictionary World Map - Alek Ledesma" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Alek Ledesma - Hangman" />
-        <item index="2" class="java.lang.String" itemvalue="Python.notes" />
+        <item index="0" class="java.lang.String" itemvalue="Python.notes" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Dictionary World Map - Alek Ledesma" />
+        <item index="2" class="java.lang.String" itemvalue="Python.Alek Ledesma - Hangman" />
         <item index="3" class="java.lang.String" itemvalue="Python.Guessgame" />
         <item index="4" class="java.lang.String" itemvalue="Python.Lucky7" />
       </list>
@@ -317,7 +317,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35962147" sideWeight="0.5087848" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35962147" sideWeight="0.49121523" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35962147" sideWeight="0.49121523" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -673,14 +673,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/notes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3213">
-          <caret line="189" column="33" lean-forward="false" selection-start-line="189" selection-start-column="33" selection-end-line="189" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -713,8 +705,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Dictionary World Map - Alek Ledesma.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="57" column="86" lean-forward="true" selection-start-line="57" selection-start-column="86" selection-end-line="57" selection-end-column="86" />
+        <state relative-caret-position="107">
+          <caret line="57" column="86" lean-forward="false" selection-start-line="57" selection-start-column="86" selection-end-line="57" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="283" column="20" lean-forward="false" selection-start-line="283" selection-start-column="20" selection-end-line="283" selection-end-column="20" />
           <folding />
         </state>
       </provider>
