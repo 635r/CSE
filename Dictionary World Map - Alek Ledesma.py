@@ -56,8 +56,27 @@ world_map = {
     "FLOODY": {
         "NAME": "Floody Place",
         "DESCRIPTION": "This place floods every now and then during the floody season"
+    },
+    "6PINES": {
+    "NAME": "6 Pine Trees",
+    "DESCRIPTION": "You see 6 pine trees a trap for a the Heffalump"
+    },
+    "PIGGLETTSHOUSE": {
+        "NAME": "Piglett's house",
+        "DESCRIPTION": "Looks like Piglett went out with Pooh"
+    },
+    "PICNICAREA": {
+        "NAME": "Picnic Area",
+        "DESCRIPTION": "Looks like a great place for a picnic. Maybe you'll comeback with some friends"
+    },
+    "KANGASHOUSE": {
+        "NAME": "Kanga's House",
+        "DESCRIPTION": "You see Kanga tending to Roo. You wave and Kanga waves back"
+    },
+    "SANDPIT": {
+        "NAME": "The Sandy Pit that Roo Plays in",
+        "DESCRIPTION": "Seems like Roo is at home with Kanga"
     }
-
 }
 
 current_node = world_map["HOME"]
