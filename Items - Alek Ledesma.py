@@ -25,7 +25,24 @@ items = {
         "NAME": "Reason",
         "DESCRIPTION": "something you should always have"
     },
-    "COMMONSENS": {
+    "COMMONSENSE": {
         "NAME": "Common Sense",
         "DESCRIPTION": "Something you should always use"
     },
+    "JAR": {
+        "NAME": "A Jar of Honey",
+        "DESCRIPTION": "Looks like Pooh missed one"
+    },
+    "": {
+    "NAME": "",
+    "DESCRIPTION": ""
+    },
+    "": {
+        "NAME": "",
+        "DESCRIPTION": ""
+    },
+    "": {
+        "NAME": "",
+        "DESCRIPTION": ""
+    },
+

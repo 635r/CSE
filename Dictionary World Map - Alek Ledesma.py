@@ -9,35 +9,35 @@ world_map = {
             "WEST": "WESTHOUSE",
          }
     },
-    "SOUTHHOUSE": {
-        "NAME": "SOUTH OF HOME",
+    "SOUTH_HOME": {
+        "NAME": "South of Home",
         "DESCRIPTION": "To the South are OWL'S HOUSE, EEYORES'S HOUSE"
     },
-    "EASTHOUSE": {
-        "NAME": "EAST OF HOME",
+    "EAST_HOME": {
+        "NAME": "East of Home",
         "DESCRIPTION": "This is as far East as you want to go"
     },
-    "NORTHHOUSE": {
-        "NAME": "NORTH OF HOME",
+    "NORTH_HOME": {
+        "NAME": "North of Home",
         "DESCRIPTION": "To the North are a bunch of BIG ROCKS, a BEE TREE, and the NORTHPOLE"
     },
-    "WESTHOUSE": {
-        "NAME": "WEST OF HOME",
+    "WEST_HOME": {
+        "NAME": "West of Home",
         "DESCRIPTION": "fub"
     },
-    "OWLSHOUSE": {
+    "OWL": {
         "NAME": "Owl's house",
         "DESCRIPTION": "high up in the trees, you see Owl reading. You wave, but he's to caught up in it"
     },
-    "EEYORESHOUSE": {
+    "EEYORE": {
         "NAME":"Eeyore's house",
         "DESCRIPTION": "It's a sad little place. You see Eeyore asleep in his stick tent"
     },
-    "RABITSFAMRANGE": {
+    "Rabbit_FamRange": {
         "NAME": "Rabbit's Family Range",
         "DESCRIPTION": "Rabbit appears to have quite the family tree"
     },
-    "RABBITSHOUSE": {
+    "RABBIT": {
         "NAME": "Rabbit's house",
         "DESCRIPTION": "You see Rabbit tending to his garden. It's right outside of his burrow"
     },
@@ -45,11 +45,11 @@ world_map = {
         "NAME": "100 Aker Woods",
         "DESCRIPTION": "These woods could be like 100 ackers long"
     },
-    "POOHSHOUSE": {
+    "POOH": {
         "NAME": "Pooh Bear's house",
         "DESCRIPTION": "It would apear that Pooh has already gone to the BEE TREE"
     },
-    "WOOZLEWASN'T": {
+    "WOOZLE_WASNT": {
         "NAME": "Where the Woozle Wasn't",
         "DESCRIPTION": "You notice a distinct lack of Woozle"
     },
@@ -61,19 +61,19 @@ world_map = {
     "NAME": "6 Pine Trees",
     "DESCRIPTION": "You see 6 pine trees a trap for a the Heffalump"
     },
-    "PIGGLETTSHOUSE": {
+    "PIGLETT": {
         "NAME": "Piglett's house",
         "DESCRIPTION": "Looks like Piglett went out with Pooh"
     },
-    "PICNICAREA": {
+    "PICNIC_AREA": {
         "NAME": "Picnic Area",
         "DESCRIPTION": "Looks like a great place for a picnic. Maybe you'll comeback with some friends"
     },
-    "KANGASHOUSE": {
+    "KANGA": {
         "NAME": "Kanga's House",
         "DESCRIPTION": "You see Kanga tending to Roo. You wave and Kanga waves back"
     },
-    "SANDPIT": {
+    "SAND_PIT": {
         "NAME": "The Sandy Pit that Roo Plays in",
         "DESCRIPTION": "Seems like Roo is at home with Kanga"
     }

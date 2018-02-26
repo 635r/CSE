@@ -10,6 +10,7 @@ class Room(object):
         global current_node
         current_node = globals()[getattr(self, direction)]
 
+
 home = Room("Home", )
 west_home = Room("West of Home", "west_home")
 north_home = Room("North of Home", None)
