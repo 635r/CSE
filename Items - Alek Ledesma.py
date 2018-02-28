@@ -20,29 +20,23 @@ items = {
     "BOOK": {
         "NAME": "A.A.MILNE",
         "DESCRIPTION": "A book by someone named A.A Milne"
-    },
-    "REASON": {
-        "NAME": "Reason",
-        "DESCRIPTION": "something you should always have"
-    },
-    "COMMONSENSE": {
-        "NAME": "Common Sense",
-        "DESCRIPTION": "Something you should always use"
+
     },
     "JAR": {
         "NAME": "A Jar of Honey",
         "DESCRIPTION": "Looks like Pooh missed one"
     },
-    "": {
-    "NAME": "",
-    "DESCRIPTION": ""
+    "TAIL": {
+        "NAME": "Eeyore's Tail",
+        "DESCRIPTION": "Looks like it fell off a again"
     },
-    "": {
-        "NAME": "",
-        "DESCRIPTION": ""
+    "STICK2": {
+        "NAME": "Stick 2",
+        "DESCRIPTION": "Another stick that might come in handy"
     },
-    "": {
-        "NAME": "",
-        "DESCRIPTION": ""
+    "ROCK": {
+        "NAME": "A Rock",
+        "DESCRIPTION": "A rock could be used for alot of things"
     },
 
+}
