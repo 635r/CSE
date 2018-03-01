@@ -53,9 +53,9 @@ world_map = {
         "NAME": "Owl's house",
         "DESCRIPTION": "high up in the trees, you see Owl reading. You wave, but he's to caught up in it",
         "PATHS": {
-            "NORTH": "",
-            "SOUTH": "",
-            "EAST": "",
+            "NORTH": "NORTHPOLE",
+            "SOUTH": "EEYORE",
+            "EAST": "HOME",
             "WEST": "",
          }
     },
@@ -69,7 +69,7 @@ world_map = {
             "WEST": "",
          }
     },
-    "Rabbit_FamRange": {
+    "RABBIT_FAMRANGE": {
         "NAME": "Rabbit's Family Range",
         "DESCRIPTION": "Rabbit appears to have quite the family tree",
         "PATHS": {
@@ -163,22 +163,23 @@ world_map = {
         "NAME": "Kanga's House",
         "DESCRIPTION": "You see Kanga tending to Roo. You wave and Kanga waves back",
         "PATHS": {
-            "NORTH": "",
-            "SOUTH": "",
-            "EAST": "",
-            "WEST": "",
+            "NORTH": "PICNIC_AREA",
+            "SOUTH": "6PINES",
+            "EAST": "RABBIT",
+            "WEST": None,
          }
     },
     "SAND_PIT": {
         "NAME": "The Sandy Pit that Roo Plays in",
         "DESCRIPTION": "Seems like Roo is at home with Kanga",
         "PATHS": {
-            "NORTH": "",
-            "SOUTH": "",
-            "EAST": "",
-            "WEST": "",
+            "NORTH": "PICNIC_AREA",
+            "SOUTH": "RABBIT",
+            "EAST": "RABBIT_FAMRANGE",
+            "WEST": None,
          }
     },
+
     "MIL_BASE": {
         "NAME": "A Military Base",
         "DESCRIPTION": "Looks like some kind of base. You should probably go now",
@@ -186,7 +187,7 @@ world_map = {
             "NORTH": "100AKER",
             "SOUTH": "100AKER",
             "EAST": "EEYORE",
-            "WEST": "",
+            "WEST": "MIL_BASE",
          }
     }
 }
