@@ -192,20 +192,23 @@ world_map = {
     }
 }
 
-current_node = world_map["HOME"]
-directions = ["NORTH", "SOUTH", "EAST", "WEST"]
+current_node = "home"
+directions = ["north", "south", "east", "west"]
+short_directions = ["n", "s", "e", "w"]
 
 while True:
-    print(current_node["NAME"])
-    print(current_node["DESCRIPTION"])
-    command = input (">_ ")
+    print(current_node.name)
+    print(current_node.decription)
+    command = input (">_ ").lower().strip()
     if command == "quit":
         quit(0)
+    elif command in short_directions:
+        #finds the commands in short directions(index number)
+        pos = short_directions.index(command)
     if command in directions:
         try:
-            name_of_node = current_node["PATHS"][command]
-            current_node = world_map[name_of_node]
-        except KeyError:
+
+            except KeyError:
             print("You can't go that way")
     else:
         print("I don't get it")
