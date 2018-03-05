@@ -91,13 +91,23 @@ world_map = {
     },
     "100AKER": {
         "NAME": "100 Aker Woods",
-        "DESCRIPTION": "These woods could be like 100 ackers long",
+        "DESCRIPTION": "These woods could be like 100 Ackers long",
         "PATHS": {
             "NORTH": "",
             "SOUTH": "",
             "EAST": "",
             "WEST": "",
-         }
+        }
+    },
+    "NE100AKER": {
+        "NAME": "100 Aker Woods",
+        "DESCRIPTION": "Must be called 100 Akers for a reason",
+        "PATHS": {
+            "NORTH": "RABBIT_FAMRANGE",
+            "SOUTH": "MIL_BASE",
+            "EAST": "",
+            "WEST": "",
+            }
     },
     "POOH": {
         "NAME": "Pooh Bear's house",
@@ -123,10 +133,10 @@ world_map = {
         "NAME": "Floody Place",
         "DESCRIPTION": "This place floods every now and then during the floody season",
         "PATHS": {
-            "NORTH": "",
-            "SOUTH": "",
-            "EAST": "",
-            "WEST": "",
+            "NORTH": "PIGLETT",
+            "SOUTH": None,
+            "EAST": "EEYORE",
+            "WEST": None,
          }
     },
     "6PINES": {
