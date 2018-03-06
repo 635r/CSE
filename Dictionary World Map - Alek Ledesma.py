@@ -13,10 +13,10 @@ world_map = {
         "NAME": "South of Home",
         "DESCRIPTION": "To the South are OWL'S HOUSE, EEYORES'S HOUSE",
         "PATHS": {
-            "NORTH": "",
-            "SOUTH": "",
-            "EAST": "",
-            "WEST": "",
+            "NORTH": "HOME",
+            "SOUTH": "EEYORE",
+            "EAST": None,
+            "WEST": "OWL",
          }
     },
     "EAST_HOME": {
@@ -31,7 +31,7 @@ world_map = {
     },
     "NORTH_HOME": {
         "NAME": "North of Home",
-        "DESCRIPTION": "To the North are a bunch of BIG ROCKS, a BEE TREE, and the NORTHPOLE",
+        "DESCRIPTION": "To the North are a BEE TREE, and the NORTHPOLE",
         "PATHS": {
             "NORTH": "",
             "SOUTH": "",
@@ -83,21 +83,11 @@ world_map = {
         "NAME": "Rabbit's house",
         "DESCRIPTION": "You see Rabbit tending to his garden. It's right outside of his burrow",
         "PATHS": {
-            "NORTH": "",
-            "SOUTH": "",
-            "EAST": "",
-            "WEST": "",
+            "NORTH": "SANDY_PIT",
+            "SOUTH": "NW100AKER",
+            "EAST": "PABBIT_FAMRANGE",
+            "WEST": "KANGA",
          }
-    },
-    "100AKER": {
-        "NAME": "100 Aker Woods",
-        "DESCRIPTION": "These woods could be like 100 Ackers long",
-        "PATHS": {
-            "NORTH": "",
-            "SOUTH": "",
-            "EAST": "",
-            "WEST": "",
-        }
     },
     "NE100AKER": {
         "NAME": "100 Aker Woods",
@@ -105,28 +95,58 @@ world_map = {
         "PATHS": {
             "NORTH": "RABBIT_FAMRANGE",
             "SOUTH": "MIL_BASE",
-            "EAST": "",
-            "WEST": "",
+            "EAST": "OWL",
+            "WEST": "NW100AKER",
             }
+    },
+    "NW100AKER": {
+        "NAME": "100 Aker Woods",
+        "DESCRIPTION": "Must be called 100 Akers for a reason",
+        "PATHS": {
+            "NORTH": "RABBIT",
+            "SOUTH": "SW100AKER",
+            "EAST": "NE100AKER",
+            "WEST": "6PINE",
+            }
+    },
+    "SW100AKER": {
+        "NAME": "100 Aker Woods",
+        "DESCRIPTION": "Must be called 100 Akers for a reason",
+        "PATHS": {
+            "NORTH": "NW100AKER",
+            "SOUTH": None,
+            "EAST": "MIL_BASE",
+            "WEST": "WOOZLEWASNT",
+            },
+    "MIL_BASE": {
+        "NAME": "A Military Base",
+        "DESCRIPTION": "Looks like some kind of base. You should probably go now",
+        "PATHS": {
+            "NORTH": "NE100AKER",
+            "SOUTH": None,
+            "EAST": "EEYORE",
+            "WEST": "SW100AKER",
+            }
+        },
     },
     "POOH": {
         "NAME": "Pooh Bear's house",
         "DESCRIPTION": "It would apear that Pooh has already gone to the BEE TREE",
         "PATHS": {
-            "NORTH": "",
-            "SOUTH": "",
-            "EAST": "",
-            "WEST": "",
+            "NORTH": None,
+            "SOUTH": "PIGLETT",
+            "EAST": "6PINE",
+            "WEST": None,
          }
     },
     "WOOZLE_WASNT": {
         "NAME": "Where the Woozle Wasn't",
         "DESCRIPTION": "You notice a distinct lack of Woozle",
         "PATHS": {
-            "NORTH": "",
-            "SOUTH": "",
-            "EAST": "",
-            "WEST": "",
+            "NORTH": "6PINE",
+            "SOUTH": "FLOODY",
+            "EAST": "SW100AKER",
+            "WEST": "PIGLETT",
          }
     },
     "FLOODY": {
@@ -143,30 +163,30 @@ world_map = {
         "NAME": "6 Pine Trees",
         "DESCRIPTION": "You see 6 pine trees a trap for a the Heffalump",
         "PATHS": {
-            "NORTH": "",
-            "SOUTH": "",
-            "EAST": "",
-            "WEST": "",
+            "NORTH": "KANGA",
+            "SOUTH": "WOOZLE_WASNT",
+            "EAST": "NW100AKER",
+            "WEST": "POOH",
          }
     },
     "PIGLETT": {
         "NAME": "Piglett's house",
         "DESCRIPTION": "Looks like Piglett went out with Pooh",
         "PATHS": {
-            "NORTH": "",
-            "SOUTH": "",
-            "EAST": "",
-            "WEST": "",
+            "NORTH": "POOH",
+            "SOUTH": "FLOODY",
+            "EAST": "6PINE",
+            "WEST": None,
          }
     },
     "PICNIC_AREA": {
         "NAME": "Picnic Area",
         "DESCRIPTION": "Looks like a great place for a picnic. Maybe you'll comeback with some friends",
         "PATHS": {
-            "NORTH": "",
-            "SOUTH": "",
-            "EAST": "",
-            "WEST": "",
+            "NORTH": None,
+            "SOUTH": "SAND_PIT",
+            "EAST": None,
+            "WEST": None,
          }
     },
     "KANGA": {
@@ -186,20 +206,30 @@ world_map = {
             "NORTH": "PICNIC_AREA",
             "SOUTH": "RABBIT",
             "EAST": "RABBIT_FAMRANGE",
-            "WEST": None,
+            "WEST": "KANGA",
          }
     },
-
-    "MIL_BASE": {
-        "NAME": "A Military Base",
-        "DESCRIPTION": "Looks like some kind of base. You should probably go now",
+    "NPOLE":{
+        "NAME": "North Pole",
+        "DESCRIPTION": "The farthest to the North you have ever gone",
         "PATHS": {
-            "NORTH": "100AKER",
-            "SOUTH": "100AKER",
-            "EAST": "EEYORE",
-            "WEST": "MIL_BASE",
-         }
-    }
+            "NORTH": None,
+            "SOUTH": "HOME",
+            "EAST": None,
+            "WEST": "BEE_TREE",
+        }
+    },
+    "BEE_TREE": {
+        "NAME": "Bee Tree",
+        "DESCRIPTION": "There's Pooh and Piglett collecting honey",
+        "PATHS": {
+            "NORTH": None,
+            "SOUTH": "HOME",
+            "EAST": "OWL",
+            "WEST": "PICNIC_AREA",
+        }
+    },
+
 }
 
 current_node = "home"
