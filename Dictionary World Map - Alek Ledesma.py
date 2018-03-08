@@ -1,6 +1,6 @@
 world_map = {
     "HOME": {
-        "NAME": "HOME",
+        "NAME": "Home",
         "DESCRIPTION": "All of your friend's houses lie east of your home(which is were you are)",
         "PATHS": {
             "NORTH": "NORTH_HOUSE",
@@ -33,20 +33,20 @@ world_map = {
         "NAME": "North of Home",
         "DESCRIPTION": "To the North are a BEE TREE, and the NORTHPOLE",
         "PATHS": {
-            "NORTH": "",
-            "SOUTH": "",
-            "EAST": "",
-            "WEST": "",
+            "NORTH": "NPOLE",
+            "SOUTH": "HOME",
+            "EAST": None,
+            "WEST": "RABBIT_FAMRANGE",
          }
     },
     "WEST_HOME": {
         "NAME": "West of Home",
         "DESCRIPTION": "",
         "PATHS": {
-            "NORTH": "",
-            "SOUTH": "",
-            "EAST": "",
-            "WEST": "",
+            "NORTH": "NPOLE",
+            "SOUTH": "OWL",
+            "EAST": "HOME",
+            "WEST": "NE100AKER",
          }
     },
     "OWL": {
@@ -56,7 +56,7 @@ world_map = {
             "NORTH": "NORTHPOLE",
             "SOUTH": "EEYORE",
             "EAST": "HOME",
-            "WEST": "",
+            "WEST": "NE100AKER",
          }
     },
     "EEYORE": {
@@ -90,7 +90,7 @@ world_map = {
          }
     },
     "NE100AKER": {
-        "NAME": "100 Aker Woods",
+        "NAME": "NE 100 Aker Woods",
         "DESCRIPTION": "Must be called 100 Akers for a reason",
         "PATHS": {
             "NORTH": "RABBIT_FAMRANGE",
@@ -100,7 +100,7 @@ world_map = {
             }
     },
     "NW100AKER": {
-        "NAME": "100 Aker Woods",
+        "NAME": "NW 100 Aker Woods",
         "DESCRIPTION": "Must be called 100 Akers for a reason",
         "PATHS": {
             "NORTH": "RABBIT",
@@ -110,7 +110,7 @@ world_map = {
             }
     },
     "SW100AKER": {
-        "NAME": "100 Aker Woods",
+        "NAME": "SW 100 Aker Woods",
         "DESCRIPTION": "Must be called 100 Akers for a reason",
         "PATHS": {
             "NORTH": "NW100AKER",
