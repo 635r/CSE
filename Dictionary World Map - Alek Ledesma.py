@@ -63,20 +63,20 @@ world_map = {
         "NAME":"Eeyore's house",
         "DESCRIPTION": "It's a sad little place. You see Eeyore asleep in his stick tent",
         "PATHS": {
-            "NORTH": "",
-            "SOUTH": "",
-            "EAST": "",
-            "WEST": "",
+            "NORTH": "HOME",
+            "SOUTH": None,
+            "EAST": None,
+            "WEST": "MIL_BASE",
          }
     },
     "RABBIT_FAMRANGE": {
         "NAME": "Rabbit's Family Range",
         "DESCRIPTION": "Rabbit appears to have quite the family tree",
         "PATHS": {
-            "NORTH": "",
-            "SOUTH": "",
-            "EAST": "",
-            "WEST": "",
+            "NORTH": None,
+            "SOUTH": "NW100AKER",
+            "EAST": "HOME",
+            "WEST": "RABBIT",
          }
     },
     "RABBIT": {
@@ -228,7 +228,7 @@ world_map = {
             "EAST": "OWL",
             "WEST": "PICNIC_AREA",
         }
-    },
+    }
 
 }
 
