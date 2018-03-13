@@ -13,7 +13,7 @@ class Vehicle(object):
 
 class Car(Vehicle):
     def __init__(self, seat, hp):
-        super(Car, self).__init__("engine", "steering wheel", seat)
+        super(Car, self).__init__("engine", "steering wheel", "seat")
         self.horsepower = hp
 
     def turn_on(self):
@@ -47,4 +47,11 @@ class Tesla(KeylessCar):
         Car.turn_on(self)
 
 
-musk.car
+#programmer
+class Person(object):
+    def __init__(self, name, education):
+        self.name = name
+        self.education = education
+
+    def work(self):
+        print("%s goes to work" % self.name)
