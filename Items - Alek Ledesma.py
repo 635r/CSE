@@ -1,24 +1,23 @@
 class item(object):
-    def __init__(self, boost, heal, weapon, key):
-        self.boost = boost
-        self.heal = heal
-        self.weapon = weapon
-        self.key = key
+    def __init__(self, name, description):
+        self.name = name
+        self.description = description
 
 
 class boost(item):
-    def __init__(self, hp, attack, defense):
-        self.hp = hp
-        self.attack = attack
-        self.defense = defense
+    def __init__(self, increase):
+        super(boost, self).__init__(self.)
+        self.increase = increase
 
 class hp (boost):
     def __init__(self, turn3, turn6):
+        super(hp, self).__init__(self.name, self.description)
         self.turn3 = turn3
         self.turn6 = turn6
 
 class attack (boost):
     def __init__(self, turn3, turn6):
+        super(attack, self).__init__()
         self.turn3 = turn3
         self.turn6 = turn6
 
@@ -44,16 +43,17 @@ class defense (heal):
 
 
 class weapon (item):
-    def __init__(self, sword, gun, stick):
-        self.sword = sword
-        self. gun = gun
-        self. stick = stick
+    def __init__(self, damage, uses):
+        self.damage = damage
+        self.uses = uses
 
 class gun (weapon):
-    def __init__(self, AR, revolver, pistol):
-        self.AR = AR
-        self.revolver = revolver
-        self.pistol = pistol
+    def __init__(self, capacity):
+        self.capacity = capacity
+
+class ar (gun)
+    def __init__(self):
+
 
 class sword (weapon):
     def __init__(self, good, bad):
@@ -70,3 +70,4 @@ class key (item):
     def __init__(self, rock, security):
         self.rock = rock
         self.security = security
+
