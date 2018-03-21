@@ -5,21 +5,31 @@ class item(object):
 
 
 class boost(item):
-    def __init__(self, increase):
-        super(boost, self).__init__(self.)
-        self.increase = increase
+    def __init__(self, increase_stat):
+        super(boost, self).__init__(self.increase_stat)
+        self.increase_stat = increase_stat
 
 class hp (boost):
-    def __init__(self, turn3, turn6):
-        super(hp, self).__init__(self.name, self.description)
-        self.turn3 = turn3
-        self.turn6 = turn6
+    def __init__(self):
+        super(hp, self).__init__(hp)
+
+class hp_turn3 ():
+    def __init__(self):
+
+class hp_turn6 ():
+    def __init__(self):
 
 class attack (boost):
-    def __init__(self, turn3, turn6):
-        super(attack, self).__init__()
-        self.turn3 = turn3
-        self.turn6 = turn6
+    def __init__(self):
+        super(attack, self).__init__(attack)
+
+class attack_turn3():
+    def __init__(self):
+        super().__init__()
+
+class attack_turn6 ():
+    def __init__(self):
+        super().__init__()
 
 class defense (boost):
     def __init__(self, turn3, turn6):
@@ -51,8 +61,9 @@ class gun (weapon):
     def __init__(self, capacity):
         self.capacity = capacity
 
-class ar (gun)
+class AR (gun):
     def __init__(self):
+        super(AR, self).__init__(0)
 
 
 class sword (weapon):
@@ -67,7 +78,6 @@ class stick (weapon):
 
 
 class key (item):
-    def __init__(self, rock, security):
-        self.rock = rock
-        self.security = security
+    def __init__(self, unlock):
+        self.unlock = unlock
 
