@@ -6,7 +6,7 @@ class item(object):
 
 class boost(item):
     def __init__(self, increase_stat):
-        super(boost, self).__init__(self.increase_stat)
+        super(boost, self).__init__()
         self.increase_stat = increase_stat
 
 class hp (boost):
@@ -15,10 +15,11 @@ class hp (boost):
 
 class hp_turn3 ():
     def __init__(self):
+        super(hp_turn3, self).__init__()
 
 class hp_turn6 ():
     def __init__(self):
-
+        super(hp_turn6, self).__init__()
 class attack (boost):
     def __init__(self):
         super(attack, self).__init__(attack)
@@ -32,20 +33,23 @@ class attack_turn6 ():
         super().__init__()
 
 class defense (boost):
-    def __init__(self, turn3, turn6):
-        self.turn3 = turn3
-        self.turn6 = turn6
+    def __init__(self):
+
+
+class defense_turn3 ():
+    def __init__(self):
+
+class defence_turn6 ():
+    def __init__(self):
 
 
 class heal (item):
-    def __init__(self, hp, defense):
-        self.hp = hp
-        self.defense = defense
+    def __init__(self, restore_stat):
+        self.restore_stat
 
 class hp (heal):
-    def __init__(self, ten, fifteen):
-        self.ten = ten
-        self.fifteen = fifteen
+    def __init__(self, restore_hp):
+        self.restore_hp
 
 class defense (heal):
     def __init__(self, restore):
@@ -58,24 +62,37 @@ class weapon (item):
         self.uses = uses
 
 class gun (weapon):
-    def __init__(self, capacity):
+    def __init__(self, capacity, durability):
+        super(gun, self).__init__()
         self.capacity = capacity
+        self.durability = durability
 
 class AR (gun):
     def __init__(self):
-        super(AR, self).__init__(0)
+        super(AR, self).__init__(6, 25, 3)
+
+class Pistol (gun):
+    def __init__(self):
+        super(Pistol, self).__init__(10, 1)
+
+class Revolver (gun)
 
 
-class sword (weapon):
-    def __init__(self, good, bad):
-        self.good = good
-        self.bad = bad
+class big_stick (weapon):
+    def __init__(self):
+        super(big_stick, self).__init__(12, 5)
 
-class stick (weapon):
-    def __init__(self, big, small):
-        self.big = big
-        self.small = small
+class small_stick (weapon):
+    def __init__(self):
+        super(small_stick, self).__init__(24, 2)
 
+class good_sword (weapon):
+    def __init__(self):
+        super(good_sword, self).__init__(50, 10)
+
+class bad_sword (weapon):
+    def __init__(self):
+        super(bad_sword, self).__init__(24, 4)
 
 class key (item):
     def __init__(self, unlock):
