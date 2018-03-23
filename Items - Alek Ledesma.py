@@ -3,53 +3,54 @@ class item(object):
         self.name = name
         self.description = description
 
+    def use(self):
+        print: ("what do you want to use?")
 
-class boost(item):
-    def __init__(self, increase_stat):
-        super(boost, self).__init__()
-        self.increase_stat = increase_stat
+class booster(item):
+    def __init__(self, increased_stat, num_turns, increase_of_stat):
+        super(booster, self).__init__()
+        self.increased_stat = increased_stat
+        self.num_turns = num_turns
+        self.increase_of_stat = increase_of_stat
 
-class hp (boost):
+    def boost(self):
+        print:("which boost will you use?")
+
+class hp_turn3 (booster):
     def __init__(self):
-        super(hp, self).__init__(hp)
+        super(hp_turn3, self).__init__(hp, 3, 5)
 
-class hp_turn3 ():
+class hp_turn6 (booster):
     def __init__(self):
-        super(hp_turn3, self).__init__()
+        super(hp_turn6, self).__init__(hp, 6, 5)
 
-class hp_turn6 ():
+
+class attack_turn3 (booster):
     def __init__(self):
-        super(hp_turn6, self).__init__()
-class attack (boost):
+        super(attack_turn3).__init__(attack, 3, 5)
+
+class attack_turn6 (booster):
     def __init__(self):
-        super(attack, self).__init__(attack)
+        super().__init__(attack, 6, 5)
 
-class attack_turn3():
+
+
+class defense_turn3 (booster):
     def __init__(self):
-        super().__init__()
+        super(defense_turn3, self).__init__(defense, 3, 5)
 
-class attack_turn6 ():
+class defense_turn6 (booster):
     def __init__(self):
-        super().__init__()
-
-class defense (boost):
-    def __init__(self):
-
-
-class defense_turn3 ():
-    def __init__(self):
-
-class defence_turn6 ():
-    def __init__(self):
-
+        super(defense_turn6, self).__init__(defense, 6, 5)
 
 class heal (item):
     def __init__(self, restore_stat):
-        self.restore_stat
+        super(heal, self).__init__()
+        self.restore_stat = restore_stat
 
 class hp (heal):
     def __init__(self, restore_hp):
-        self.restore_hp
+        self.restore_hp = restore_hp
 
 class defense (heal):
     def __init__(self, restore):
@@ -67,16 +68,18 @@ class gun (weapon):
         self.capacity = capacity
         self.durability = durability
 
+    
 class AR (gun):
     def __init__(self):
-        super(AR, self).__init__(6, 25, 3)
+        super(AR, self).__init__(25, 5)
 
 class Pistol (gun):
     def __init__(self):
         super(Pistol, self).__init__(10, 1)
 
 class Revolver (gun)
-
+    def __init__(self):
+        super(Revolver, self).__init__(6, 1)
 
 class big_stick (weapon):
     def __init__(self):
@@ -97,4 +100,12 @@ class bad_sword (weapon):
 class key (item):
     def __init__(self, unlock):
         self.unlock = unlock
+        
+class mil_sec_card (key):
+    def __init__(self):
+        super(mil_sec_card, self).__init__(mil_base)
+
+class special_rock (key):
+    def __init__(self):
+        super(special_rock, self).__init__(poohs house)
 

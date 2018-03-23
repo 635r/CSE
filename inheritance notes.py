@@ -15,6 +15,7 @@ class Car(Vehicle):
     def __init__(self, seat, hp):
         super(Car, self).__init__("engine", "steering wheel", "seat")
         self.horsepower = hp
+        self.seat = seat
 
     def turn_on(self):
         print("You turn the key and the car turns on")
