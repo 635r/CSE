@@ -15,42 +15,38 @@ class boost(item):
 
 
 class hp_turn3 (boost):
-    def __init__(self, name, description, increase_stat, num_turns, increase_of_stat):
-        super(boost, self).__init__()
+    def __init__(self):
+        super(boost, self).__init__("hp 3 turn", "a hp boost that lasts for 3 turns", hp, 3, 2)
 
 class hp_turn6 (boost):
-    def __init__(self, name, description, increase_stat, num_turns, increase_of_stat):
-        super(boost, self).__init__(name, description, increase_stat, num_turns, increase_of_stat)
+    def __init__(self):
+        super(boost, self).__init__("hp 6 turn", "a hp boost that lasts for 6 turns", hp, 6, 2)
 
 
 class attack_turn3(boost):
-    def __init__(self, name, description, increase_stat, num_turns, increase_of_stat):
-        super(boost, self).__init__(name, description, increase_stat)
+    def __init__(self):
+        super(boost, self).__init__("Attack 3 turn", "attack boost that lasts for 3 turns", attack, 3, 2)
 
 class attack_turn6 (boost):
-    def __init__(self, name, description, increase_stat, num_turns, increase_of_stat):
-        super(boost, self).__init__(name, description, increase_stat)
+    def __init__(self):
+        super(boost, self).__init__("Attack 6 turn", "attack boost that lasts for 6 turns", attack, 6, 2)
 
-
-class Def (boost):
-    def __init__(self, name, description, increase_stat, num_turns, increase_of_stat):
-        super(boost, self).__init__(name, description, increase_stat)
 
 
 class defense_turn3 (boost):
-    def __init__(self, name, description, increase_stat, num_turns, increase_of_stat):
-        super(boost, self).__init__(name, description, increase_stat)
+    def __init__(self):
+        super(boost, self).__init__("Defense boost 3", "a defense boost that lasts for 3 turns", defense, 6, 2)
 
 
-class defence_turn6 (boost):
-    def __init__(self, name, description, increase_stat, num_turns, increase_of_stat):
-        super(boost, self).__init__(name, description, increase_stat)
+class defense_turn6 (boost):
+    def __init__(self):
+        super(boost, self).__init__("Defense boost 6", "a defense boost that lasts for 6 turns", defense, 6, 2)
 
 
 
 class heal (item):
-    def __init__(self, name, description, increase_stat):
-        super(boost, self).__init__(name, description, increase_stat)
+    def __init__(self, name, description, restore):
+        super(self).__init__(name, description, restore)
 
     def __init__(self, restore_stat):
         super(heal, self).__init__()
@@ -80,6 +76,8 @@ class gun (weapon):
         self.name = name
         self.capacity = capacity
         self.durability = durability
+        self.damage = damage
+        self.uses = uses
 
     
 class AR (gun):
@@ -96,19 +94,19 @@ class Revolver (gun):
 
 class big_stick (weapon):
     def __init__(self):
-        super(big_stick, self).__init__("Big Stick" , "a melee weapon", )
+        super(big_stick, self).__init__("Big Stick" , "a melee weapon", 12, 4)
 
 class small_stick (weapon):
     def __init__(self):
-        super(small_stick, self).__init__(24, 2)
+        super(small_stick, self).__init__("Small Stick", "the start of your great arsenal collection ", 24, 2)
 
 class good_sword (weapon):
     def __init__(self):
-        super(good_sword, self).__init__(50, 10)
+        super(good_sword, self).__init__("Good Sword", "best melee weapon", 50, 10)
 
 class bad_sword (weapon):
     def __init__(self):
-        super(bad_sword, self).__init__(24, 4)
+        super(bad_sword, self).__init__( "Bad Sword", "still better than any stick", 24, 4)
 
 
 class key (item):
