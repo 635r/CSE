@@ -117,7 +117,7 @@ class Key (Item):
         
 class MilSecCard (Key):
     def __init__(self):
-        super(MilSecCard, self).__init__("Military Base Security Card", "this security card unlocks the security base", "MilBase")
+        super(MilSecCard, self).__init__("Military Security Card", "Security card unlocks the secure base", "MilBase")
 
 
 class SpecialRock (Key):
