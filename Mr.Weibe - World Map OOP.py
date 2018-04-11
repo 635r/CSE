@@ -22,24 +22,28 @@ EastHome = Room("East of Home", None, None, None, "Home", "the East edge of the 
 NorthHome = Room("North of Home", "North Pole", "Home", None, "Rabbit's Family Range",
                  "To the North are a Bee Tree and the North Pole")
 
-west_home = Room("West of Home","North Pole", "Owl's Home", "Home", "NE 100 Aker Woods" )
+west_home = Room("West of Home", "North Pole", "Owl's Home", "Home", "NE 100 Aker Woods", "west of the home")
 
-Owl = Room("Owl's Home", "North Pole", "Eeyore", "Home", "NE 100 Aker Woods" )
+Owl = Room("Owl's Home", "North Pole", "Eeyore", "Home", "NE 100 Aker Woods",
+           "Owl is high up in the trees too absorbed in his bokk to pay any mind to you")
 
 Eeyore = Room("Eeyore's House", "Home", None, None, "A Military Base",
               "The place is sad and depressing, Eeyore is asleep in his house of sticks")
 
-RabbitFamRange = Room("Rabbit's Family Range", None, "NW 100 Aker Woods", "Home", "Rabbit's House")
+RabbitFamRange = Room("Rabbit's Family Range", None, "NW 100 Aker Woods", "Home", "Rabbit's House",
+                      "Rabbit apears to have quite the the family tree")
 
 Rabbit = Room("Rabbit's House", "The Sandy Pit Roo Plays in", "NW 100 Aker woods", "Rabbit's  Family Range", )
 
 NE100Aker = Room("NE 100 Aker Woods", "Rabbit's Family Range", "A Military Base","Owl's House",
                  "North 100 Aker Woods", "You're gonna need a key card to get in")
 
-NW100Aker = Room("NW 100 Aker Woods")
-SW100Aker = Room("SW 100 Aker Woods")
+NW100Aker = Room("NW 100 Aker Woods", "Rabbit's House", "SW 100 Aker Woods", "NE 100 Aker Woods", "6 Pine Trees",
+                 "Must be called 100 akers for a reason")
+SW100Aker = Room("SW 100 Aker Woods", "NE 100 Aker Woods", None, "Military Base", "WoozleWasnt",
+                 "These woods must be like 100 akers")
 
-MilBase = Room("A Military Base", "NE 100 Aker Woods",None, "Eeyore's House", "SW 100 Aker Woods", "")
+MilBase = Room("A Military Base", "NE 100 Aker Woods", None, "Eeyore's House", "SW 100 Aker Woods", "")
 
 Pooh = Room("Pooh Bear's House", None, "Piglett's House", "6 Pine Trees", None,
             "It looks like Pooh went out to the Bee Tree")
@@ -50,11 +54,13 @@ Floody = Room("Floody Place", "Piglett's House", None, "Eeyore's House", None)
 
 Pine = Room("6 Pine Trees", "Kanga's House", "Where the Woozle Wasn't", "NW 100 Aker Woods", "Pooh Bear's House")
 
-Piglett = Room("Piglett", "Pooh", "Floody PLace", "6 Pine Trees", None)
+Piglett = Room("Piglett", "Pooh", "Floody PLace", "6 Pine Trees", None,
+               "It would apear that Piglett is out and about with Pooh")
 
 PicnicArea = Room("Picnic Area", None, "The Sandy Pit Roo Plays in", None, None, "A great place to have a picnic")
 
-Kanga = Room("Kanga's House","Picnic Area", "6 Pine Trees", "Rabbit's House", None, "The house where Kanga and Roo live")
+Kanga = Room("Kanga's House", "Picnic Area", "6 Pine Trees", "Rabbit's House", None,
+             "The house where Kanga and Roo live")
 
 SandPit = Room("The Sandy Pit that Roo Plays in", "Picnic Area", "Rabbit's House", "Rabbit's Family Range",
                "Kanga's House", "Looks like Roo isn't here but at home with Kanga")
