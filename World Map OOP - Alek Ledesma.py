@@ -1,18 +1,19 @@
 class Room(object):
-    def __init__(self, name, north, south, east, west, description):
+    def __init__(self, name, description, north, south, east, west):
         self.name = name
+        self.description = description
         self.north = north
         self.south = south
         self.east = east
         self.west = west
-        self.description = description
 
     def move(self, direction):
         global current_node
         current_node = globals()[getattr(self, direction)]
 
 
-Home = Room("Home", "North of home", "South of home", "East of home", "West of home", "")
+Home = Room("Home", "North of home", "South of home", "East of home", "West of home",
+            "All the other places are East of the house")
 
 SouthHome = Room("South of Home", "Home", "Eeyore's House", None, "Owl's House",
                  "Owl sits inside, You wave but he's busy reading")
@@ -33,26 +34,31 @@ Eeyore = Room("Eeyore's House", "Home", None, None, "A Military Base",
 RabbitFamRange = Room("Rabbit's Family Range", None, "NW 100 Aker Woods", "Home", "Rabbit's House",
                       "Rabbit apears to have quite the the family tree")
 
-Rabbit = Room("Rabbit's House", "The Sandy Pit Roo Plays in", "NW 100 Aker woods", "Rabbit's  Family Range", )
+Rabbit = Room("Rabbit's House", "The Sandy Pit Roo Plays in", "NW 100 Aker woods", "Rabbit's  Family Range",
+              "Kanga's house", "Rabbit is outside tending to his garden right outside of his burrow")
 
-NE100Aker = Room("NE 100 Aker Woods", "Rabbit's Family Range", "A Military Base","Owl's House",
+NE100Aker = Room("NE 100 Aker Woods", "Rabbit's Family Range", "A Military Base", "Owl's House",
                  "North 100 Aker Woods", "You're gonna need a key card to get in")
 
 NW100Aker = Room("NW 100 Aker Woods", "Rabbit's House", "SW 100 Aker Woods", "NE 100 Aker Woods", "6 Pine Trees",
                  "Must be called 100 akers for a reason")
-SW100Aker = Room("SW 100 Aker Woods", "NE 100 Aker Woods", None, "Military Base", "WoozleWasnt",
+SW100Aker = Room("SW 100 Aker Woods", "NE 100 Aker Woods", None, "Military Base", "Where the Woozle Wasn't",
                  "These woods must be like 100 akers")
 
-MilBase = Room("A Military Base", "NE 100 Aker Woods", None, "Eeyore's House", "SW 100 Aker Woods", "")
+MilBase = Room("A Military Base", "NE 100 Aker Woods", None, "Eeyore's House", "SW 100 Aker Woods",
+               "Looks like a Military base. You should check it out once you have a Security Card")
 
 Pooh = Room("Pooh Bear's House", None, "Piglett's House", "6 Pine Trees", None,
             "It looks like Pooh went out to the Bee Tree")
 
-WoozleWasnt = Room("Where the Woozle Wasn't", "6 Pine Trees", "Floody Place", "SW 100 Aker Woods", "Piglett's House")
+WoozleWasnt = Room("Where the Woozle Wasn't", "6 Pine Trees", "Floody Place", "SW 100 Aker Woods", "Piglett's House",
+                   "You notice a distinct lack Woozle")
 
-Floody = Room("Floody Place", "Piglett's House", None, "Eeyore's House", None)
+Floody = Room("Floody Place", "Piglett's House", None, "Eeyore's House", None,
+              "This place floods every now and then during the floody season")
 
-Pine = Room("6 Pine Trees", "Kanga's House", "Where the Woozle Wasn't", "NW 100 Aker Woods", "Pooh Bear's House")
+Pine = Room("6 Pine Trees", "Kanga's House", "Where the Woozle Wasn't", "NW 100 Aker Woods", "Pooh Bear's House",
+            "There are 6 pine trees and the trap for the heffalump")
 
 Piglett = Room("Piglett", "Pooh", "Floody PLace", "6 Pine Trees", None,
                "It would apear that Piglett is out and about with Pooh")
@@ -70,3 +76,25 @@ NPole = Room("North Pole", None, "Home", None, "Bee Tree",
 
 BeeTree = Room("Bee Tree", None, "Home", "Owl's House", "Picnic Area",
                "There are Pooh and Piglett collecting honey")
+
+current_node = Home
+directions = ["north", "south", "east", "west"]
+short_directions = ["n", "s", "e", "w"]
+
+while True:
+    print(current_node.name)
+    print(current_node.description)
+    command = input (">_ ").lower().strip()
+    if command == "quit":
+        quit(0)
+    elif command in short_directions:
+        #finds the commands in short directions(index num)ber
+        pos = short_directions.index(command)
+        command = directions[pos]
+    if command in directions:
+        try: current_node.move(command)
+        except KeyError:
+            print("You can't go that way")
+    else:
+        print("I don't get it")
+        print(0)
