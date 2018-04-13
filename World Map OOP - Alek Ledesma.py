@@ -84,14 +84,16 @@ short_directions = ["n", "s", "e", "w"]
 while True:
     print(current_node.name)
     print(current_node.description)
-    command = input (">_ ").lower().strip()
+    command = input(">_ ").lower().strip()
     if command == "quit":
+        print("Weiny")
         quit(0)
     elif command in short_directions:
         pos = short_directions.index(command)
         command = directions[pos]
     if command in directions:
-        try: current_node.move(command)
+        try:
+            current_node.move(command)
         except KeyError:
             print("You can't go that way")
     else:

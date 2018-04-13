@@ -15,7 +15,6 @@ world_map = {
         "PATHS": {
             "NORTH": "HOME",
             "SOUTH": "EEYORE",
-            "EAST": None,
             "WEST": "OWL",
          }
     },
@@ -23,9 +22,6 @@ world_map = {
         "NAME": "East of Home",
         "DESCRIPTION": "This is as far East as you want to go",
         "PATHS": {
-            "NORTH": None,
-            "SOUTH": None,
-            "EAST": None,
             "WEST": "HOME",
          }
     },
@@ -35,7 +31,6 @@ world_map = {
         "PATHS": {
             "NORTH": "NPOLE",
             "SOUTH": "HOME",
-            "EAST": None,
             "WEST": "RABBIT_FAMRANGE",
          }
     },
@@ -60,12 +55,10 @@ world_map = {
          }
     },
     "EEYORE": {
-        "NAME":"Eeyore's house",
+        "NAME": "Eeyore's house",
         "DESCRIPTION": "It's a sad little place. You see Eeyore asleep in his stick tent",
         "PATHS": {
             "NORTH": "HOME",
-            "SOUTH": None,
-            "EAST": None,
             "WEST": "MIL_BASE",
          }
     },
@@ -73,7 +66,6 @@ world_map = {
         "NAME": "Rabbit's Family Range",
         "DESCRIPTION": "Rabbit appears to have quite the family tree",
         "PATHS": {
-            "NORTH": None,
             "SOUTH": "NW100AKER",
             "EAST": "HOME",
             "WEST": "RABBIT",
@@ -114,29 +106,26 @@ world_map = {
         "DESCRIPTION": "Must be called 100 Akers for a reason",
         "PATHS": {
             "NORTH": "NW100AKER",
-            "SOUTH": None,
             "EAST": "MIL_BASE",
             "WEST": "WOOZLEWASNT",
-            },
+        }
+    },
     "MIL_BASE": {
         "NAME": "A Military Base",
         "DESCRIPTION": "Looks like some kind of base. You should probably go now",
         "PATHS": {
             "NORTH": "NE100AKER",
-            "SOUTH": None,
             "EAST": "EEYORE",
             "WEST": "SW100AKER",
             }
         },
-    },
+
     "POOH": {
         "NAME": "Pooh Bear's house",
         "DESCRIPTION": "It would apear that Pooh has already gone to the BEE TREE",
         "PATHS": {
-            "NORTH": None,
             "SOUTH": "PIGLETT",
             "EAST": "6PINE",
-            "WEST": None,
          }
     },
     "WOOZLE_WASNT": {
@@ -154,9 +143,7 @@ world_map = {
         "DESCRIPTION": "This place floods every now and then during the floody season",
         "PATHS": {
             "NORTH": "PIGLETT",
-            "SOUTH": None,
             "EAST": "EEYORE",
-            "WEST": None,
          }
     },
     "6PINES": {
@@ -176,17 +163,13 @@ world_map = {
             "NORTH": "POOH",
             "SOUTH": "FLOODY",
             "EAST": "6PINE",
-            "WEST": None,
          }
     },
     "PICNIC_AREA": {
         "NAME": "Picnic Area",
         "DESCRIPTION": "Looks like a great place for a picnic. Maybe you'll comeback with some friends",
         "PATHS": {
-            "NORTH": None,
             "SOUTH": "SAND_PIT",
-            "EAST": None,
-            "WEST": None,
          }
     },
     "KANGA": {
@@ -196,7 +179,6 @@ world_map = {
             "NORTH": "PICNIC_AREA",
             "SOUTH": "6PINES",
             "EAST": "RABBIT",
-            "WEST": None,
          }
     },
     "SAND_PIT": {
@@ -209,13 +191,11 @@ world_map = {
             "WEST": "KANGA",
          }
     },
-    "NPOLE":{
+    "NPOLE": {
         "NAME": "North Pole",
         "DESCRIPTION": "The farthest to the North you have ever gone",
         "PATHS": {
-            "NORTH": None,
             "SOUTH": "HOME",
-            "EAST": None,
             "WEST": "BEE_TREE",
         }
     },
@@ -223,7 +203,6 @@ world_map = {
         "NAME": "Bee Tree",
         "DESCRIPTION": "There's Pooh and Piglett collecting honey",
         "PATHS": {
-            "NORTH": None,
             "SOUTH": "HOME",
             "EAST": "OWL",
             "WEST": "PICNIC_AREA",
@@ -232,28 +211,26 @@ world_map = {
 
 }
 
-current_node = "HOME"
+current_node = world_map["HOME"]
 directions = ["north", "south", "east", "west"]
 short_directions = ["n", "s", "e", "w"]
 
 while True:
-    print(current_node.name)
-    print(current_node.description)
-    command = input (">_ ").lower().strip()
+    print(current_node["NAME"])
+    print(current_node["DESCRIPTION"])
+    command = input(">_ ").lower().strip()
     if command == "quit":
+        print("wieny")
         quit(0)
     elif command in short_directions:
-        #finds the commands in short directions(index num)ber
         pos = short_directions.index(command)
         command = directions[pos]
     if command in directions:
-        try: current_node.move(command)
+        try:
+            name_of_node = current_node["PATHS"][command]
+            current_node = world_map[name_of_node]
         except KeyError:
             print("You can't go that way")
     else:
         print("I don't get it")
         print(0)
-
-    def move(self, direction):
-        global current_node
-    current_node = globals()[getattr(self, direction)]
