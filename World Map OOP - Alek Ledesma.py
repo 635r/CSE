@@ -88,7 +88,6 @@ while True:
     if command == "quit":
         quit(0)
     elif command in short_directions:
-        #finds the commands in short directions(index num)ber
         pos = short_directions.index(command)
         command = directions[pos]
     if command in directions:
