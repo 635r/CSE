@@ -123,4 +123,3 @@ class MilSecCard (Key):
 class SpecialRock (Key):
     def __init__(self):
         super(SpecialRock, self).__init__("The Special Rock", "the special rock that'll get Pooh's attention ", "Pooh")
-
