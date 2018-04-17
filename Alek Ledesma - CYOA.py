@@ -1,12 +1,3 @@
-#Mr.Weibe - CYOA
-    #Import statments
-    #Class definition
-        #Items
-        #characters
-        #Rooms
-#Instantuation of classes
-#Controller
-
 
 class Room(object):
     def __init__(self, name, description, north, south, east, west):
@@ -148,6 +139,8 @@ class SpecialRock(Key):
     def __init__(self):
         super(SpecialRock, self).__init__("The Special Rock", "the special rock that'll get Pooh's attention ", "Pooh")
 
+#Rooms
+
 
 Home = Room("Home", "North of home", "South of home", "East of home", "West of home",
             "All the other places are East of the house")
@@ -236,4 +229,13 @@ while True:
     else:
         print("I don't get it")
         print(0)
+
+#Mr.Weibe - CYOA
+    #Import statments
+    #Class definition
+        #Items
+        #characters
+        #Rooms
+#Instantuation of classes
+#Controller
 
