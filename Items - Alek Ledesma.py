@@ -93,6 +93,7 @@ class BigStick (Weapon):
     def __init__(self):
         super(BigStick, self).__init__("Big Stick", "a melee weapon", 12, 4)
 
+    def use(self, BigStick):
 
 class SmallStick (Weapon):
     def __init__(self):
