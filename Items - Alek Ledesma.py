@@ -16,30 +16,48 @@ class HpTurn3 (Boost):
     def __init__(self):
         super(HpTurn3, self).__init__("hp 3 turn", "a hp boost that lasts for 3 turns", 'hp', 3, 2)
 
+    def boost_hp3(self, player):
+        player.hp += self.increase_of_stat
+
 
 class HpTurn6 (Boost):
     def __init__(self):
         super(HpTurn6, self).__init__("hp 6 turn", "a hp boost that lasts for 6 turns", 'hp', 6, 2)
+
+    def boost_hp6(self, player):
+        player.hp += self.increase_of_stat
 
 
 class AttackTurn3(Boost):
     def __init__(self):
         super(AttackTurn3, self).__init__("Attack 3 turn", "attack boost that lasts for 3 turns", 'attack', 3, 2)
 
+    def boost_attack3(self, player):
+        player.attack += self.increase_of_stat
+
 
 class AttackTurn6 (Boost):
     def __init__(self):
         super(AttackTurn6, self).__init__("Attack 6 turn", "attack boost that lasts for 6 turns", 'attack', 6, 2)
+
+    def boost_attack6(self, player):
+        player.attack += self.increase_of_stat
 
 
 class DefenseTurn3 (Boost):
     def __init__(self):
         super(DefenseTurn3, self).__init__("Defense boost 3", "a defense boost that lasts for 3 turns", 'defense', 6, 2)
 
+    def boost_defense3(self, player):
+        player.defense += self.increase_of_stat
+
 
 class DefenseTurn6 (Boost):
     def __init__(self):
         super(DefenseTurn6, self).__init__("Defense boost 6", "a defense boost that lasts for 6 turns", 'defense', 6, 2)
+
+    def boost_defense6(self, player):
+        player.defense += self.increase_of_stat
 
 
 class Heal(Item):
@@ -53,6 +71,8 @@ class Hp (Heal):
         self.restore_hp = restore_hp
         super(Hp, self).__init__("hp full heal", "restores all of your health", Hp)
 
+    def heal(self, player):
+        player.hp = self.max_hp
 
 class Defense (Heal):
     def __init__(self, restore):
@@ -93,7 +113,6 @@ class BigStick (Weapon):
     def __init__(self):
         super(BigStick, self).__init__("Big Stick", "a melee weapon", 12, 4)
 
-    def use(self, BigStick):
 
 class SmallStick (Weapon):
     def __init__(self):
