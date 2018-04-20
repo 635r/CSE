@@ -74,6 +74,7 @@ class Hp (Heal):
     def heal(self, player):
         player.hp = self.max_hp
 
+
 class Defense (Heal):
     def __init__(self, restore):
         self.restore = restore
