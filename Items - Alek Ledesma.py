@@ -94,11 +94,11 @@ class Gun (Weapon):
         self.capacity = capacity
         self.durability = durability
 
-    
 class AR (Gun):
     def __init__(self):
         super(AR, self).__init__("AR", "best assault rifle", 25, 3, 35, 500)
 
+    def
 
 class Pistol (Gun):
     def __init__(self):

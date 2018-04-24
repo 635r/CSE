@@ -83,6 +83,7 @@ NE100Aker = Room("NE 100 Aker Woods", "Rabbit's Family Range", "A Military Base"
 
 NW100Aker = Room("NW 100 Aker Woods", "Rabbit's House", "SW 100 Aker Woods", "NE 100 Aker Woods", "6 Pine Trees",
                  "Must be called 100 akers for a reason")
+
 SW100Aker = Room("SW 100 Aker Woods", "NE 100 Aker Woods", None, "Military Base", "Where the Woozle Wasn't",
                  "These woods must be like 100 akers")
 
@@ -193,8 +194,8 @@ class Hp(Heal):
         self.restore_hp = restore_hp
         super(Hp, self).__init__("hp full heal", "restores all of your health", Hp)
 
-    def heal(self, character):
-        character.hp = self.max_hp
+    def heal(self):
+        you.hp = you.max_hp
 
 
 class Defense(Heal):
@@ -221,16 +222,22 @@ class AR(Gun):
     def __init__(self):
         super(AR, self).__init__("AR", "best assault rifle", 25, 3, 35, 500)
 
+    def you_AR (self, enemy):
+        enemy.hp -= you.attack
+
 
 class Pistol(Gun):
     def __init__(self):
         super(Pistol, self).__init__("Pistol", "basic firearm", 10, 1, 10, 50)
 
+    def you_Pist (self, enemy, attack):
+        enemy.hp -= you.attack
 
 class Revolver(Gun):
     def __init__(self):
         super(Revolver, self).__init__("Revolver", "most powerful firearm", 6, 3, 40, 100000000)
 
+    def you_rev ()
 
 class BigStick(Weapon):
     def __init__(self):
@@ -250,6 +257,9 @@ class GoodSword(Weapon):
 class BadSword(Weapon):
     def __init__(self):
         super(BadSword, self).__init__("Bad Sword", "still better than any stick", 24, 4)
+
+    def slash (self, enemy):
+        enemy.hp -= you.attack
 
 
 class Key(Item):
