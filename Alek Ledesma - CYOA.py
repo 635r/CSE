@@ -194,7 +194,7 @@ class Hp(Heal):
         self.restore_hp = restore_hp
         super(Hp, self).__init__("hp full heal", "restores all of your health", Hp)
 
-    def heal(self):
+    def potion(self):
         you.hp = you.max_hp
 
 
@@ -222,7 +222,7 @@ class AR(Gun):
     def __init__(self):
         super(AR, self).__init__("AR", "best assault rifle", 25, 3, 35, 500)
 
-    def you_AR (self, enemy):
+    def shoot(self, enemy):
         enemy.hp -= you.attack
 
 
@@ -230,35 +230,47 @@ class Pistol(Gun):
     def __init__(self):
         super(Pistol, self).__init__("Pistol", "basic firearm", 10, 1, 10, 50)
 
-    def you_Pist (self, enemy, attack):
+    def shoot(self, enemy):
         enemy.hp -= you.attack
+
 
 class Revolver(Gun):
     def __init__(self):
         super(Revolver, self).__init__("Revolver", "most powerful firearm", 6, 3, 40, 100000000)
 
-    def you_rev ()
+    def shoot(self, enemy):
+        enemy.hp -= you.attack
+
 
 class BigStick(Weapon):
     def __init__(self):
         super(BigStick, self).__init__("Big Stick", "a melee weapon", 12, 4)
+
+    def poke(self, enemy, BigStick):
+        enemy.hp -= BigStick.damage
 
 
 class SmallStick(Weapon):
     def __init__(self):
         super(SmallStick, self).__init__("Small Stick", "the start of your great arsenal collection ", 24, 2)
 
+    def poke(self, enemy):
+        enemy.hp -= you.attack
+
 
 class GoodSword(Weapon):
     def __init__(self):
         super(GoodSword, self).__init__("Good Sword", "best melee weapon", 50, 10)
+
+    def slash(self, enemy):
+        enemy.hp -= you.attack
 
 
 class BadSword(Weapon):
     def __init__(self):
         super(BadSword, self).__init__("Bad Sword", "still better than any stick", 24, 4)
 
-    def slash (self, enemy):
+    def slash(self, enemy):
         enemy.hp -= you.attack
 
 
@@ -270,13 +282,17 @@ class Key(Item):
 
 class MilSecCard(Key):
     def __init__(self):
-        super(MilSecCard, self).__init__("Military Security Card", "Security card unlocks the secure base", "MilBase")
+        super(MilSecCard, self).__init__("MilBase", "Security card unlocks the secure base", "Military Security Card")
+
+    def unlock(self,, Pooh):
+        Pooh.locked = Pooh.woke
 
 
 class SpecialRock(Key):
     def __init__(self):
-        super(SpecialRock, self).__init__("The Special Rock", "the special rock that'll get Pooh's attention ", "Pooh")
+        super(SpecialRock, self).__init__("Pooh", "The Special Rock", "the special rock that'll get Pooh's attention ")
 
+    def unlock(self, ):
 
 current_node = Home
 directions = ["north", "south", "east", "west"]
