@@ -1,6 +1,6 @@
 
 class Room(object):
-    def __init__(self, name, description, north, south, east, west):
+    def __init__(self, name, north, south, east, west, description):
         self.name = name
         self.description = description
         self.north = north
@@ -53,7 +53,7 @@ piglett = Character("Piglett", "your timid friend Piglett", 1, 5, 0, 100, "ally"
 tigr = Character("Tigr", "The bounciest friend you'll ever know", 1, 10, 0, 50, "ally", 1)
 
 
-Home = Room("Home", "North of home", "South of home", "East of home", "West of home",
+Home = Room("Home", "North of Home", "South of Home", "East of Home", "West of Home",
             "All the other places are East of the house")
 
 SouthHome = Room("South of Home", "Home", "Eeyore's House", None, "Owl's House",
@@ -103,7 +103,7 @@ Pine = Room("6 Pine Trees", "Kanga's House", "Where the Woozle Wasn't", "NW 100 
             "There are 6 pine trees and the trap for the heffalump")
 
 Piglett = Room("Piglett", "Pooh", "Floody PLace", "6 Pine Trees", None,
-               "It would apear that Piglett is out and about with Pooh")
+               "It would appear that Piglett is out and about with Pooh")
 
 PicnicArea = Room("Picnic Area", None, "The Sandy Pit Roo Plays in", None, None, "A great place to have a picnic")
 
@@ -118,7 +118,6 @@ NPole = Room("North Pole", None, "Home", None, "Bee Tree",
 
 BeeTree = Room("Bee Tree", None, "Home", "Owl's House", "Picnic Area",
                "There are Pooh and Piglett collecting honey")
-you.ded()
 
 
 class Item(object):
@@ -284,15 +283,17 @@ class MilSecCard(Key):
     def __init__(self):
         super(MilSecCard, self).__init__("MilBase", "Security card unlocks the secure base", "Military Security Card")
 
-    def unlock(self,, Pooh):
-        Pooh.locked = Pooh.woke
+    def unlock(self, MilBase):
+        MilBase.locked = MilBase.woke
 
 
 class SpecialRock(Key):
     def __init__(self):
         super(SpecialRock, self).__init__("Pooh", "The Special Rock", "the special rock that'll get Pooh's attention ")
 
-    def unlock(self, ):
+    def unlock(self, Pooh):
+        Pooh.locked = Pooh.woke
+
 
 current_node = Home
 directions = ["north", "south", "east", "west"]
@@ -316,3 +317,6 @@ while True:
     else:
         print("I don't get it")
         print(0)
+
+
+if player.hp = 0 
