@@ -14,13 +14,13 @@ class Room(object):
 
 
 class Character(object):
-    def __init__(self, name, description, hp, attack, defense, luck, ctype, max_hp):
+    def __init__(self, name, description, hp, attack, defense, luck, c_type, max_hp):
         self.name = name
         self.description = description
         self.hp = hp
         self.attack = attack
         self.defense = defense
-        self.ctype = ctype
+        self.ctype = c_type
         self.luck = luck
         self.max_hp = max_hp
 
@@ -31,8 +31,8 @@ class Character(object):
         self.hp -= enemy.attack
 
     def ded(self):
-        if self.hp <= 0 or self.hp == 0:
-            print("oof")
+        if you.hp <= 0 or you.hp == 0:
+            print("oof, you ded")
             quit(0)
 
 
@@ -319,4 +319,3 @@ while True:
         print(0)
 
 
-if player.hp = 0 
