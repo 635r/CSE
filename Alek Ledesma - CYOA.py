@@ -20,7 +20,7 @@ class Character(object):
         self.hp = hp
         self.attack = attack
         self.defense = defense
-        self.ctype = c_type
+        self.c_type = c_type
         self.luck = luck
         self.max_hp = max_hp
 
@@ -53,70 +53,70 @@ piglett = Character("Piglett", "your timid friend Piglett", 1, 5, 0, 100, "ally"
 tigr = Character("Tigr", "The bounciest friend you'll ever know", 1, 10, 0, 50, "ally", 1)
 
 
-Home = Room("Home", "North of Home", "South of Home", "East of Home", "West of Home",
+Home = Room("Home", "NorthHome", "SouthHome", "EastHome", "WestHome",
             "All the other places are East of the house")
 
-SouthHome = Room("South of Home", "Home", "Eeyore's House", None, "Owl's House",
+SouthHome = Room("Southof Home", "Home", "Eeyore", None, "Owl",
                  "Owl sits inside, You wave but he's busy reading")
 
 EastHome = Room("East of Home", None, None, None, "Home", "the East edge of the map")
 
-NorthHome = Room("North of Home", "North Pole", "Home", None, "Rabbit's Family Range",
+NorthHome = Room("North of Home", "NPole", "Home", None, "RabbitFamRange",
                  "To the North are a Bee Tree and the North Pole")
 
-west_home = Room("West of Home", "North Pole", "Owl's Home", "Home", "NE 100 Aker Woods", "west of the home")
+WestHome = Room("West of Home", "North Pole", "Owl", "Home", "NE100Aker", "west of the home")
 
-Owl = Room("Owl's Home", "North Pole", "Eeyore", "Home", "NE 100 Aker Woods",
+Owl = Room("Owl's Home", "NPole", "Eeyore", "Home", "NE100Aker",
            "Owl is high up in the trees too absorbed in his bokk to pay any mind to you")
 
-Eeyore = Room("Eeyore's House", "Home", None, None, "A Military Base",
+Eeyore = Room("Eeyore Home", "Home", None, None, "MilBase",
               "The place is sad and depressing, Eeyore is asleep in his house of sticks")
 
-RabbitFamRange = Room("Rabbit's Family Range", None, "NW 100 Aker Woods", "Home", "Rabbit's House",
+RabbitFamRange = Room("Rabbit's Family Range", None, "NW100Aker", "Home", "Rabbit",
                       "Rabbit apears to have quite the the family tree")
 
-Rabbit = Room("Rabbit's House", "The Sandy Pit Roo Plays in", "NW 100 Aker woods", "Rabbit's  Family Range",
+Rabbit = Room("Rabbit's House", "The Sandy Pit Roo Plays in", "NW100Aker", "RabbitFamRange",
               "Kanga's house", "Rabbit is outside tending to his garden right outside of his burrow")
 
-NE100Aker = Room("NE 100 Aker Woods", "Rabbit's Family Range", "A Military Base", "Owl's House",
+NE100Aker = Room("NE 100 Aker Woods", "RabbitFamRange", "MilBase", "Owl",
                  "North 100 Aker Woods", "You're gonna need a key card to get in")
 
-NW100Aker = Room("NW 100 Aker Woods", "Rabbit's House", "SW 100 Aker Woods", "NE 100 Aker Woods", "6 Pine Trees",
+NW100Aker = Room("NW 100 Aker Woods", "Rabbit", "SW100Aker", "NE100Aker", "Pine",
                  "Must be called 100 akers for a reason")
 
-SW100Aker = Room("SW 100 Aker Woods", "NE 100 Aker Woods", None, "Military Base", "Where the Woozle Wasn't",
-                 "These woods must be like 100 akers")
+SW100Aker = Room("SW 100 Aker Woods", "NE100Aker", None, "MilBase", "Where the Woozle Wasn't",
+                 "These woods must be like 100 Akers")
 
-MilBase = Room("A Military Base", "NE 100 Aker Woods", None, "Eeyore's House", "SW 100 Aker Woods",
+MilBase = Room("The Military Base", "NE100Aker", None, "Eeyore", "SW100Aker",
                "Looks like a Military base. You should check it out once you have a Security Card")
 
-Pooh = Room("Pooh Bear's House", None, "Piglett's House", "6 Pine Trees", None,
+Pooh = Room("Pooh Bear's Home", None, "Piglett", "Pine", None,
             "It looks like Pooh went out to the Bee Tree")
 
-WoozleWasnt = Room("Where the Woozle Wasn't", "6 Pine Trees", "Floody Place", "SW 100 Aker Woods", "Piglett's House",
+WoozleWasnt = Room("Where the Woozle wasn't", "Pine", "Floody", "SW100Aker", "Piglett",
                    "You notice a distinct lack Woozle")
 
-Floody = Room("Floody Place", "Piglett's House", None, "Eeyore's House", None,
+Floody = Room("Floody Place", "Piglett", None, "Eeyore", None,
               "This place floods every now and then during the floody season")
 
-Pine = Room("6 Pine Trees", "Kanga's House", "Where the Woozle Wasn't", "NW 100 Aker Woods", "Pooh Bear's House",
+Pine = Room("6 Pine Forest", "Kanga", "WoozleWasnt", "NW100Aker", "Pooh",
             "There are 6 pine trees and the trap for the heffalump")
 
-Piglett = Room("Piglett", "Pooh", "Floody PLace", "6 Pine Trees", None,
+Piglett = Room("Piglett's Home", "Pooh", "Floody PLace", "6 Pine Trees", None,
                "It would appear that Piglett is out and about with Pooh")
 
-PicnicArea = Room("Picnic Area", None, "The Sandy Pit Roo Plays in", None, None, "A great place to have a picnic")
+PicnicArea = Room("PicnicArea", None, "SandPit", None, None, "A great place to have a picnic")
 
-Kanga = Room("Kanga's House", "Picnic Area", "6 Pine Trees", "Rabbit's House", None,
+Kanga = Room("Kanga", "PicnicArea", "Pine", "Rabbit", None,
              "The house where Kanga and Roo live")
 
-SandPit = Room("The Sandy Pit that Roo Plays in", "Picnic Area", "Rabbit's House", "Rabbit's Family Range",
+SandPit = Room("SandPit", "PicnicArea", "Rabbit", "RabbitFamRange",
                "Kanga's House", "Looks like Roo isn't here but at home with Kanga")
 
-NPole = Room("North Pole", None, "Home", None, "Bee Tree",
+NPole = Room("NPole", None, "Home", None, "BeeTree",
              "The farthest North this game allows you to go")
 
-BeeTree = Room("Bee Tree", None, "Home", "Owl's House", "Picnic Area",
+BeeTree = Room("BeeTree", None, "Home", "Owl", "PicnicArea",
                "There are Pooh and Piglett collecting honey")
 
 
@@ -317,5 +317,3 @@ while True:
     else:
         print("I don't get it")
         print(0)
-
-
