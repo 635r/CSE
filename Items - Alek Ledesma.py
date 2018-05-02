@@ -20,9 +20,9 @@ class HpTurn3 (Boost):
         player.hp += self.increase_of_stat
 
 
-class HpTurn6 (Boost):
+class hpturn6 (Boost):
     def __init__(self):
-        super(HpTurn6, self).__init__("hp 6 turn", "a hp boost that lasts for 6 turns", 'hp', 6, 2)
+        super(hpturn6, self).__init__("hp 6 turn", "a hp boost that lasts for 6 turns", 'hp', 6, 2)
 
     def boost_hp6(self, player):
         player.hp += self.increase_of_stat
@@ -94,40 +94,48 @@ class Gun (Weapon):
         self.capacity = capacity
         self.durability = durability
 
-class AR (Gun):
+class ar (Gun):
     def __init__(self):
-        super(AR, self).__init__("AR", "best assault rifle", 25, 3, 35, 500)
+        super(ar, self).__init__("AR", "best assault rifle", 25, 3, 35, 500)
 
-    def
+    def shoot(self, ar, enemy):
+        enemy.hp -= ar.damage
 
-class Pistol (Gun):
+
+class pistol (Gun):
     def __init__(self):
-        super(Pistol, self).__init__("Pistol", "basic firearm", 10, 1, 10, 50)
+        super(pistol, self).__init__("Pistol", "basic firearm", 10, 1, 10, 50)
+
+    def shoot(self, pistol, enemy):
+        enemy.hp -= pistol.damage
 
 
-class Revolver (Gun):
+class revolver (Gun):
     def __init__(self):
-        super(Revolver, self).__init__("Revolver", "most powerful firearm", 6, 3, 40, 100000000)
+        super(revolver, self).__init__("Revolver", "most powerful firearm", 6, 3, 40, 100000000)
+
+    def shoot(self, revolver, enemy):
+        enemy.hp -= revolver.damage
 
 
-class BigStick (Weapon):
+class bigstick (Weapon):
     def __init__(self):
-        super(BigStick, self).__init__("Big Stick", "a melee weapon", 12, 4)
+        super(bigstick, self).__init__("Big Stick", "a melee weapon", 12, 4)
 
 
-class SmallStick (Weapon):
+class smallstick (Weapon):
     def __init__(self):
-        super(SmallStick, self).__init__("Small Stick", "the start of your great arsenal collection ", 24, 2)
+        super(smallstick, self).__init__("Small Stick", "the start of your great arsenal collection ", 24, 2)
 
 
-class GoodSword (Weapon):
+class goodsword (Weapon):
     def __init__(self):
-        super(GoodSword, self).__init__("Good Sword", "best melee weapon", 50, 10)
+        super(goodsword, self).__init__("Good Sword", "best melee weapon", 50, 10)
 
 
-class BadSword (Weapon):
+class badsword (Weapon):
     def __init__(self):
-        super(BadSword, self).__init__("Bad Sword", "still better than any stick", 24, 4)
+        super(badsword, self).__init__("Bad Sword", "still better than any stick", 24, 4)
 
 
 class Key (Item):
