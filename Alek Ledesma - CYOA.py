@@ -1,12 +1,13 @@
 
 class Room(object):
-    def __init__(self, name, north, south, east, west, description):
+    def __init__(self, name, north, south, east, west, description, item_in_room):
         self.name = name
         self.description = description
         self.north = north
         self.south = south
         self.east = east
         self.west = west
+        self.item_in_room = item_in_room
 
     def move(self, direction):
         global current_node
@@ -14,7 +15,7 @@ class Room(object):
 
 
 class Character(object):
-    def __init__(self, name, description, hp, attack, defense, luck, c_type, max_hp):
+    def __init__(self, name, description, hp, attack, defense, luck, c_type, max_hp, inventory):
         self.name = name
         self.description = description
         self.hp = hp
@@ -23,14 +24,19 @@ class Character(object):
         self.c_type = c_type
         self.luck = luck
         self.max_hp = max_hp
+        self.inventory = inventory
 
     def fight(self, enemy):
         enemy.hp -= self.attack
 
     def damage(self, enemy):
-        self.hp -= enemy.attack
+        self.hp -= enemy.attack - self.defense
 
-    def ded(self):
+
+your_inv = {}
+
+
+def ded(self, you):
         if you.hp <= 0 or you.hp == 0:
             print("oof, you ded")
             quit(0)
@@ -54,17 +60,17 @@ tigr = Character("Tigr", "The bounciest friend you'll ever know", 1, 10, 0, 50, 
 
 
 Home = Room("Home", "NorthHome", "SouthHome", "EastHome", "WestHome",
-            "All the other places are East of the house")
+            "All the other places are East of the house", "Small Stick")
 
-SouthHome = Room("Southof Home", "Home", "Eeyore", None, "Owl",
-                 "Owl sits inside, You wave but he's busy reading")
+SouthHome = Room("South of Home", "Home", "Eeyore", None, "Owl",
+                 "Owl sits inside, You wave but he's busy reading", "none")
 
-EastHome = Room("East of Home", None, None, None, "Home", "the East edge of the map")
+EastHome = Room("East of Home", None, None, None, "Home", "the East edge of the map", "none")
 
 NorthHome = Room("North of Home", "NPole", "Home", None, "RabbitFamRange",
-                 "To the North are a Bee Tree and the North Pole")
+                 "To the North are a Bee Tree and the North Pole", "none")
 
-WestHome = Room("West of Home", "North Pole", "Owl", "Home", "NE100Aker", "west of the home")
+WestHome = Room("West of Home", "North Pole", "Owl", "Home", "NE100Aker", "west of the home", "none")
 
 Owl = Room("Owl's Home", "NPole", "Eeyore", "Home", "NE100Aker",
            "Owl is high up in the trees too absorbed in his bokk to pay any mind to you")
