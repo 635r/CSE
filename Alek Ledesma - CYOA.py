@@ -1,13 +1,13 @@
 
 class Room(object):
-    def __init__(self, name, north, south, east, west, description, item_in_room):
+    def __init__(self, name, north, south, east, west, description, enemy_in_room):
         self.name = name
         self.description = description
         self.north = north
         self.south = south
         self.east = east
         self.west = west
-        self.item_in_room = item_in_room
+        self.enemy_in_room = enemy_in_room
 
     def move(self, direction):
         global current_node
@@ -42,17 +42,19 @@ def ded(self, you):
             quit(0)
 
 
+none = Character("none", "none", 0, 0, 0, 0, "none", 0, "none")
+
 you = Character("Christopher Robin", "The child from the 100 Aker Woods", 100, 5, 40, 50, "player", 100)
 
-scout = Character("Scout", "A surveyor for the US Army", 24, 10, 0, 2, "enemy", 24)
+scout = Character("Scout", "A surveyor for the US Army", 24, 10, 0, 2, "enemy", 24, "")
 
-soldier = Character("Soldier", "Proud soldier of US Army", 50, 20, 10, 3, "enemy", 50)
+soldier = Character("Soldier", "Proud soldier of US Army", 50, 20, 10, 3, "enemy", 50, "AR")
 
-turret = Character("Auto Turret", "A fully unmanned turret", 12, 13, 20, 0, "enemy", 12)
+turret = Character("Auto Turret", "A fully unmanned turret", 12, 13, 20, 0, "enemy", 12, "Pistol")
 
-seal6 = Character("Seal Team 6", "The best in the USA", 666, 25, 80, 7, "boss", 666)
+seal6 = Character("Seal Team 6", "The best in the USA", 666, 25, 80, 7, "boss", 666, "SCAR")
 
-pooh = Character("Winnie the Pooh", "The lovable bear friend", 1, 30, 0, 0, "ally", 1)
+pooh = Character("Winnie the Pooh", "The lovable bear friend", 1, 30, 0, 0, "ally", 1, "GreatSword")
 
 piglett = Character("Piglett", "your timid friend Piglett", 1, 5, 0, 100, "ally", 1)
 
@@ -63,14 +65,14 @@ Home = Room("Home", "NorthHome", "SouthHome", "EastHome", "WestHome",
             "All the other places are East of the house", "Small Stick")
 
 SouthHome = Room("South of Home", "Home", "Eeyore", None, "Owl",
-                 "Owl sits inside, You wave but he's busy reading", "none")
+                 "Owl sits inside, You wave but he's busy reading")
 
-EastHome = Room("East of Home", None, None, None, "Home", "the East edge of the map", "none")
+EastHome = Room("East of Home", None, None, None, "Home", "the East edge of the map")
 
 NorthHome = Room("North of Home", "NPole", "Home", None, "RabbitFamRange",
-                 "To the North are a Bee Tree and the North Pole", "none")
+                 "To the North are a Bee Tree and the North Pole")
 
-WestHome = Room("West of Home", "North Pole", "Owl", "Home", "NE100Aker", "west of the home", "none")
+WestHome = Room("West of Home", "North Pole", "Owl", "Home", "NE100Aker", "west of the home", "noting")
 
 Owl = Room("Owl's Home", "NPole", "Eeyore", "Home", "NE100Aker",
            "Owl is high up in the trees too absorbed in his bokk to pay any mind to you")
@@ -123,7 +125,7 @@ NPole = Room("NPole", None, "Home", None, "BeeTree",
              "The farthest North this game allows you to go")
 
 BeeTree = Room("BeeTree", None, "Home", "Owl", "PicnicArea",
-               "There are Pooh and Piglett collecting honey")
+               "There are Pooh and Piglett collecting honey", "none")
 
 
 class Item(object):
