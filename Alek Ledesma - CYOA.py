@@ -60,55 +60,57 @@ piglett = Character("Piglett", "your timid friend Piglett", 1, 5, 0, 100, "ally"
 
 tigr = Character("Tigr", "The bounciest friend you'll ever know", 1, 10, 0, 50, "ally", 1, "BigStick")
 
+heffalump = Character("Heffalump", "A bonus round", 900, 20, 2, 0, "boss", )
+
 
 Home = Room("Home", "NorthHome", "SouthHome", "EastHome", "WestHome",
-            "All the other places are East of the house", "Small Stick")
+            "All the other places are East of the house", none)
 
 SouthHome = Room("South of Home", "Home", "Eeyore", None, "Owl",
-                 "Owl sits inside, You wave but he's busy reading")
+                 "Owl sits inside, You wave but he's busy reading", none)
 
-EastHome = Room("East of Home", None, None, None, "Home", "the East edge of the map")
+EastHome = Room("East of Home", None, None, None, "Home", "the East edge of the map", none)
 
 NorthHome = Room("North of Home", "NPole", "Home", None, "RabbitFamRange",
-                 "To the North are a Bee Tree and the North Pole")
+                 "To the North are a Bee Tree and the North Pole", none)
 
-WestHome = Room("West of Home", "North Pole", "Owl", "Home", "NE100Aker", "west of the home", "noting")
+WestHome = Room("West of Home", "North Pole", "Owl", "Home", "NE100Aker", "west of the home", none)
 
 Owl = Room("Owl's Home", "NPole", "Eeyore", "Home", "NE100Aker",
-           "Owl is high up in the trees too absorbed in his bokk to pay any mind to you")
+           "Owl is high up in the trees too absorbed in his bokk to pay any mind to you", soldier)
 
 Eeyore = Room("Eeyore Home", "Home", None, None, "MilBase",
-              "The place is sad and depressing, Eeyore is asleep in his house of sticks")
+              "The place is sad and depressing, Eeyore is asleep in his house of sticks", soldier)
 
 RabbitFamRange = Room("Rabbit's Family Range", None, "NW100Aker", "Home", "Rabbit",
-                      "Rabbit apears to have quite the the family tree")
+                      "Rabbit apears to have quite the the family tree",soldier)
 
 Rabbit = Room("Rabbit's House", "The Sandy Pit Roo Plays in", "NW100Aker", "RabbitFamRange",
-              "Kanga's house", "Rabbit is outside tending to his garden right outside of his burrow")
+              "Kanga's house", "Rabbit is outside tending to his garden right outside of his burrow", soldier)
 
 NE100Aker = Room("NE 100 Aker Woods", "RabbitFamRange", "MilBase", "Owl",
-                 "North 100 Aker Woods", "You're gonna need a key card to get in")
+                 "North 100 Aker Woods", "You're gonna need a key card to get in", soldier)
 
 NW100Aker = Room("NW 100 Aker Woods", "Rabbit", "SW100Aker", "NE100Aker", "Pine",
-                 "Must be called 100 akers for a reason")
+                 "Must be called 100 akers for a reason", soldier)
 
 SW100Aker = Room("SW 100 Aker Woods", "NE100Aker", None, "MilBase", "Where the Woozle Wasn't",
-                 "These woods must be like 100 Akers")
+                 "These woods must be like 100 Akers", soldier)
 
 MilBase = Room("The Military Base", "NE100Aker", None, "Eeyore", "SW100Aker",
-               "Looks like a Military base. You should check it out once you have a Security Card")
+               "Looks like a Military base. You should check it out once you have a Security Card", seal6)
 
 Pooh = Room("Pooh Bear's Home", None, "Piglett", "Pine", None,
-            "It looks like Pooh went out to the Bee Tree")
+            "It looks like Pooh went out to the Bee Tree", soldier)
 
 WoozleWasnt = Room("Where the Woozle wasn't", "Pine", "Floody", "SW100Aker", "Piglett",
-                   "You notice a distinct lack Woozle")
+                   "You notice a distinct lack Woozle", soldier)
 
 Floody = Room("Floody Place", "Piglett", None, "Eeyore", None,
-              "This place floods every now and then during the floody season")
+              "This place floods every now and then during the floody season", scout)
 
 Pine = Room("6 Pine Forest", "Kanga", "WoozleWasnt", "NW100Aker", "Pooh",
-            "There are 6 pine trees and the trap for the heffalump")
+            "There are 6 pine trees and the trap for the heffalump", )
 
 Piglett = Room("Piglett's Home", "Pooh", "Floody PLace", "6 Pine Trees", None,
                "It would appear that Piglett is out and about with Pooh")
