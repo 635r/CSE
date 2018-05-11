@@ -14,6 +14,10 @@ class Room(object):
         current_node = globals()[getattr(self, direction)]
 
 
+if input == "I don't feel so good":
+    import webbrowser
+    webbrowser.open_new_tab("https://www.youtube.com/watch?v=7RG65qiOuI")
+
 class Character(object):
     def __init__(self, name, description, hp, attack, defense, luck, c_type, max_hp, inventory):
         self.name = name
@@ -60,7 +64,7 @@ piglett = Character("Piglett", "your timid friend Piglett", 1, 5, 0, 100, "ally"
 
 tigr = Character("Tigr", "The bounciest friend you'll ever know", 1, 10, 0, 50, "ally", 1, "BigStick")
 
-heffalump = Character("Heffalump", "A bonus round", 900, 20, 2, 0, "boss", )
+heffalump = Character("Heffalump", "A bonus round", 900, 20, 2, 0, "boss", 4000, "SCAR")
 
 
 Home = Room("Home", "NorthHome", "SouthHome", "EastHome", "WestHome",
@@ -110,21 +114,21 @@ Floody = Room("Floody Place", "Piglett", None, "Eeyore", None,
               "This place floods every now and then during the floody season", scout)
 
 Pine = Room("6 Pine Forest", "Kanga", "WoozleWasnt", "NW100Aker", "Pooh",
-            "There are 6 pine trees and the trap for the heffalump", )
+            "There are 6 pine trees and the trap for the heffalump", heffalump)
 
 Piglett = Room("Piglett's Home", "Pooh", "Floody PLace", "6 Pine Trees", None,
-               "It would appear that Piglett is out and about with Pooh")
+               "It would appear that Piglett is out and about with Pooh", soldier)
 
-PicnicArea = Room("PicnicArea", None, "SandPit", None, None, "A great place to have a picnic")
+PicnicArea = Room("PicnicArea", None, "SandPit", None, None, "A great place to have a picnic", scout)
 
 Kanga = Room("Kanga", "PicnicArea", "Pine", "Rabbit", None,
-             "The house where Kanga and Roo live")
+             "The house where Kanga and Roo live", soldier)
 
 SandPit = Room("SandPit", "PicnicArea", "Rabbit", "RabbitFamRange",
-               "Kanga's House", "Looks like Roo isn't here but at home with Kanga")
+               "Kanga's House", "Looks like Roo isn't here but at home with Kanga", scout)
 
 NPole = Room("NPole", None, "Home", None, "BeeTree",
-             "The farthest North this game allows you to go")
+             "The farthest North this game allows you to go", scout)
 
 BeeTree = Room("BeeTree", None, "Home", "Owl", "PicnicArea",
                "There are Pooh and Piglett collecting honey", "none")
@@ -331,3 +335,5 @@ while True:
     else:
         print("I don't get it")
         print(0)
+
+
