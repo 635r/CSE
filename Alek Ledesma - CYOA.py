@@ -14,10 +14,6 @@ class Room(object):
         current_node = globals()[getattr(self, direction)]
 
 
-if input == "I don't feel so good":
-    import webbrowser
-    webbrowser.open_new_tab("https://www.youtube.com/watch?v=7RG65qiOuI")
-
 class Character(object):
     def __init__(self, name, description, hp, attack, defense, luck, c_type, max_hp, inventory):
         self.name = name
@@ -107,7 +103,7 @@ MilBase = Room("The Military Base", "NE100Aker", None, "Eeyore", "SW100Aker",
 Pooh = Room("Pooh Bear's Home", None, "Piglett", "Pine", None,
             "It looks like Pooh went out to the Bee Tree", soldier)
 
-WoozleWasnt = Room("Where the Woozle wasn't", "Pine", "Floody", "SW100Aker", "Piglett",
+WoozleWasnt = Room("Where the Woozle wasn't", "Pine", "Floody", "SW100Aker", piglett,
                    "You notice a distinct lack Woozle", soldier)
 
 Floody = Room("Floody Place", "Piglett", None, "Eeyore", None,
@@ -337,3 +333,18 @@ while True:
         print(0)
 
 
+def encounter(
+    print("%s has set his sights on you" ),
+    print("______________________________________"),
+    print("will you?"),
+    print("1 Fight "
+          "2 Heal "
+          "3 Boost")
+    if input(1)
+        print("______________________________________")
+        print("with what weapon?"),
+
+        if input(weapon)
+            
+
+)
