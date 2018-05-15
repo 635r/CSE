@@ -15,13 +15,12 @@ class Room(object):
 
 
 class Character(object):
-    def __init__(self, name, description, hp, attack, defense, luck, c_type, max_hp, inventory):
+    def __init__(self, name, description, hp, attack, defense, luck, max_hp, inventory):
         self.name = name
         self.description = description
         self.hp = hp
         self.attack = attack
         self.defense = defense
-        self.c_type = c_type
         self.luck = luck
         self.max_hp = max_hp
         self.inventory = inventory
@@ -32,8 +31,23 @@ class Character(object):
     def damage(self, enemy):
         self.hp -= enemy.attack - self.defense
 
+class Enemy(Character):
+    def __init__(self,  name, description, hp, attack, defense, luck, max_hp, inventory):
+            super(Enemy, self).__init__( name, description, hp, attack, defense, luck, max_hp, inventory)
 
-your_inv = {}
+    your_inv = {}
+
+
+def encounter(
+        print("%s has set his sights on you" %s enemy.name),
+             print("______________________________________"),
+             print("will you?"),
+             print("1 Fight "
+                   "2 Heal "
+                   "3 Boost")
+
+)
+
 
 
 def ded(you):
@@ -41,26 +55,33 @@ def ded(you):
             print("oof, you ded")
             quit(0)
 
+class player(Character):
+    def __init__(self,  name, description, hp, attack, defense, luck, max_hp, inventory):
+        super(player, self).__init__("Christopher Robin", "The child from the 100 Aker Woods", 100, 5, 40, 50, 100)
 
-none = Character("none", "none", 0, 0, 0, 0, "none", 0, "nothing")
+none = Character("none", "none", 0, 0, 0, 0, 0, "nothing")
 
-you = Character("Christopher Robin", "The child from the 100 Aker Woods", 100, 5, 40, 50, "player", 100, your_inv)
+class scout(Enemy):
+    def __init__(self,  name, description, hp, attack, defense, luck, max_hp, inventory):
+        super(scout, self).__init__("Scout", "A surveyor for the US Army", 24, 10, 0, 2, 24, Revolver)
 
-scout = Character("Scout", "A surveyor for the US Army", 24, 10, 0, 2, "enemy", 24, "revolver")
+class soldier(Enemy):
+    def __init__(self,  name, description, hp, attack, defense, luck, max_hp, inventory):
+        super(soldier, self).__init__("Soldier", "Proud soldier of US Army", 50, 20, 10, 3, 50, AR)
 
-soldier = Character("Soldier", "Proud soldier of US Army", 50, 20, 10, 3, "enemy", 50, "AR")
 
-turret = Character("Auto Turret", "A fully unmanned turret", 12, 13, 20, 0, "enemy", 12, "Pistol")
 
-seal6 = Character("Seal Team 6", "The best in the USA", 666, 25, 80, 7, "boss", 666, "SCAR")
+turret = Character("Auto Turret", "A fully unmanned turret", 12, 13, 20, 0, 12, Pistol)
 
-pooh = Character("Winnie the Pooh", "The lovable bear friend", 1, 30, 0, 0, "ally", 1, "GreatSword")
+seal6 = Character("Seal Team 6", "The best in the USA", 666, 25, 80, 7, 666, AR)
 
-piglett = Character("Piglett", "your timid friend Piglett", 1, 5, 0, 100, "ally", 1, "BigStick")
+pooh = Character("Winnie the Pooh", "The lovable bear friend", 1, 30, 0, 0, 1, GreatSword)
 
-tigr = Character("Tigr", "The bounciest friend you'll ever know", 1, 10, 0, 50, "ally", 1, "BigStick")
+piglett = Character("Piglett", "your timid friend Piglett", 1, 5, 0, 100, 1, BigStick)
 
-heffalump = Character("Heffalump", "A bonus round", 900, 20, 2, 0, "boss", 4000, "SCAR")
+tigr = Character("Tigr", "The bounciest friend you'll ever know", 1, 10, 0, 50, 1, BigStick)
+
+heffalump = Character("Heffalump", "A bonus round", 900, 20, 2, 0, 4000, AR)
 
 
 Home = Room("Home", "NorthHome", "SouthHome", "EastHome", "WestHome",
@@ -332,19 +353,3 @@ while True:
         print("I don't get it")
         print(0)
 
-
-def encounter(
-    print("%s has set his sights on you" ),
-    print("______________________________________"),
-    print("will you?"),
-    print("1 Fight "
-          "2 Heal "
-          "3 Boost")
-    if input(1)
-        print("______________________________________")
-        print("with what weapon?"),
-
-        if input(weapon)
-            
-
-)
