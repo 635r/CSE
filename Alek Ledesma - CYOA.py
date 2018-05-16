@@ -31,23 +31,12 @@ class Character(object):
     def damage(self, enemy):
         self.hp -= enemy.attack - self.defense
 
+
 class Enemy(Character):
     def __init__(self,  name, description, hp, attack, defense, luck, max_hp, inventory):
-            super(Enemy, self).__init__( name, description, hp, attack, defense, luck, max_hp, inventory)
+            super(Enemy, self).__init__(name, description, hp, attack, defense, luck, max_hp, inventory)
 
     your_inv = {}
-
-
-def encounter(
-        print("%s has set his sights on you" %s enemy.name),
-             print("______________________________________"),
-             print("will you?"),
-             print("1 Fight "
-                   "2 Heal "
-                   "3 Boost")
-
-)
-
 
 
 def ded(you):
@@ -55,33 +44,53 @@ def ded(you):
             print("oof, you ded")
             quit(0)
 
-class player(Character):
-    def __init__(self,  name, description, hp, attack, defense, luck, max_hp, inventory):
-        super(player, self).__init__("Christopher Robin", "The child from the 100 Aker Woods", 100, 5, 40, 50, 100)
 
 none = Character("none", "none", 0, 0, 0, 0, 0, "nothing")
 
-class scout(Enemy):
-    def __init__(self,  name, description, hp, attack, defense, luck, max_hp, inventory):
-        super(scout, self).__init__("Scout", "A surveyor for the US Army", 24, 10, 0, 2, 24, Revolver)
 
-class soldier(Enemy):
-    def __init__(self,  name, description, hp, attack, defense, luck, max_hp, inventory):
-        super(soldier, self).__init__("Soldier", "Proud soldier of US Army", 50, 20, 10, 3, 50, AR)
+class Player(Character):
+    def __init__(self):
+        super(Player, self).__init__("Christopher Robin", "The child from the 100 Aker Woods", 100, 5, 40, 50, 100)
 
 
+class Scout(Enemy):
+    def __init__(self):
+        super(Scout, self).__init__("Scout", "A surveyor for the US Army", 24, 10, 0, 2, 24, Revolver)
 
-turret = Character("Auto Turret", "A fully unmanned turret", 12, 13, 20, 0, 12, Pistol)
 
-seal6 = Character("Seal Team 6", "The best in the USA", 666, 25, 80, 7, 666, AR)
+class Soldier(Enemy):
+    def __init__(self):
+        super(Soldier, self).__init__("Soldier", "Proud soldier of US Army", 50, 20, 10, 3, 50, AR)
 
-pooh = Character("Winnie the Pooh", "The lovable bear friend", 1, 30, 0, 0, 1, GreatSword)
 
-piglett = Character("Piglett", "your timid friend Piglett", 1, 5, 0, 100, 1, BigStick)
+class Turret(Enemy):
+    def __init__(self):
+        super(Turret, self).__init__("Auto Turret", "A fully unmanned turret", 12, 13, 20, 0, 12, Pistol)
 
-tigr = Character("Tigr", "The bounciest friend you'll ever know", 1, 10, 0, 50, 1, BigStick)
 
-heffalump = Character("Heffalump", "A bonus round", 900, 20, 2, 0, 4000, AR)
+class Seal6(Enemy):
+    def __init__(self):
+        super(Seal6, self).__init__("Seal Team 6", "The best in the USA", 666, 25, 80, 7, 666, AR)
+
+
+class Pooh(Enemy):
+    def __init__(self):
+        super(Pooh, self).__init__("Winnie the Pooh", "The lovable bear friend", 1, 30, 0, 0, 1, GoodSword)
+
+
+class Piglett(Enemy):
+    def __init__(self):
+        super(Piglett, self).__init__("Piglett", "your timid friend Piglett", 1, 5, 0, 100, 1, BigStick)
+
+
+class Tigr(Enemy):
+    def __init__(self):
+        super(Tigr, self).__init__("Tigr", "The bounciest friend you'll ever know", 1, 10, 0, 50, 1, BigStick)
+
+
+class Heffalump(Enemy):
+    def __init__(self):
+        super(Heffalump, self).__init__("Heffalump", "A bonus round", 900, 20, 2, 0, 4000, AR)
 
 
 Home = Room("Home", "NorthHome", "SouthHome", "EastHome", "WestHome",
@@ -98,54 +107,54 @@ NorthHome = Room("North of Home", "NPole", "Home", None, "RabbitFamRange",
 WestHome = Room("West of Home", "North Pole", "Owl", "Home", "NE100Aker", "west of the home", none)
 
 Owl = Room("Owl's Home", "NPole", "Eeyore", "Home", "NE100Aker",
-           "Owl is high up in the trees too absorbed in his bokk to pay any mind to you", soldier)
+           "Owl is high up in the trees too absorbed in his bokk to pay any mind to you", Soldier)
 
 Eeyore = Room("Eeyore Home", "Home", None, None, "MilBase",
-              "The place is sad and depressing, Eeyore is asleep in his house of sticks", soldier)
+              "The place is sad and depressing, Eeyore is asleep in his house of sticks", Soldier)
 
 RabbitFamRange = Room("Rabbit's Family Range", None, "NW100Aker", "Home", "Rabbit",
-                      "Rabbit apears to have quite the the family tree",soldier)
+                      "Rabbit apears to have quite the the family tree", Soldier)
 
 Rabbit = Room("Rabbit's House", "The Sandy Pit Roo Plays in", "NW100Aker", "RabbitFamRange",
-              "Kanga's house", "Rabbit is outside tending to his garden right outside of his burrow", soldier)
+              "Kanga's house", "Rabbit is outside tending to his garden right outside of his burrow", Soldier)
 
 NE100Aker = Room("NE 100 Aker Woods", "RabbitFamRange", "MilBase", "Owl",
-                 "North 100 Aker Woods", "You're gonna need a key card to get in", soldier)
+                 "North 100 Aker Woods", "You're gonna need a key card to get in", Soldier)
 
 NW100Aker = Room("NW 100 Aker Woods", "Rabbit", "SW100Aker", "NE100Aker", "Pine",
-                 "Must be called 100 akers for a reason", soldier)
+                 "Must be called 100 akers for a reason", Soldier)
 
 SW100Aker = Room("SW 100 Aker Woods", "NE100Aker", None, "MilBase", "Where the Woozle Wasn't",
-                 "These woods must be like 100 Akers", soldier)
+                 "These woods must be like 100 Akers", Soldier)
 
 MilBase = Room("The Military Base", "NE100Aker", None, "Eeyore", "SW100Aker",
-               "Looks like a Military base. You should check it out once you have a Security Card", seal6)
+               "Looks like a Military base. You should check it out once you have a Security Card", Seal6)
 
-Pooh = Room("Pooh Bear's Home", None, "Piglett", "Pine", None,
-            "It looks like Pooh went out to the Bee Tree", soldier)
+pooh = Room("Pooh Bear's Home", None, "Piglett", "Pine", None,
+            "It looks like Pooh went out to the Bee Tree", Soldier)
 
-WoozleWasnt = Room("Where the Woozle wasn't", "Pine", "Floody", "SW100Aker", piglett,
-                   "You notice a distinct lack Woozle", soldier)
+WoozleWasnt = Room("Where the Woozle wasn't", "Pine", "Floody", "SW100Aker", Piglett,
+                   "You notice a distinct lack Woozle", Soldier)
 
 Floody = Room("Floody Place", "Piglett", None, "Eeyore", None,
-              "This place floods every now and then during the floody season", scout)
+              "This place floods every now and then during the floody season", Scout)
 
 Pine = Room("6 Pine Forest", "Kanga", "WoozleWasnt", "NW100Aker", "Pooh",
-            "There are 6 pine trees and the trap for the heffalump", heffalump)
+            "There are 6 pine trees and the trap for the heffalump", Heffalump)
 
 Piglett = Room("Piglett's Home", "Pooh", "Floody PLace", "6 Pine Trees", None,
-               "It would appear that Piglett is out and about with Pooh", soldier)
+               "It would appear that Piglett is out and about with Pooh", Soldier)
 
-PicnicArea = Room("PicnicArea", None, "SandPit", None, None, "A great place to have a picnic", scout)
+PicnicArea = Room("PicnicArea", None, "SandPit", None, None, "A great place to have a picnic", Scout)
 
 Kanga = Room("Kanga", "PicnicArea", "Pine", "Rabbit", None,
-             "The house where Kanga and Roo live", soldier)
+             "The house where Kanga and Roo live", Soldier)
 
 SandPit = Room("SandPit", "PicnicArea", "Rabbit", "RabbitFamRange",
-               "Kanga's House", "Looks like Roo isn't here but at home with Kanga", scout)
+               "Kanga's House", "Looks like Roo isn't here but at home with Kanga", Scout)
 
 NPole = Room("NPole", None, "Home", None, "BeeTree",
-             "The farthest North this game allows you to go", scout)
+             "The farthest North this game allows you to go", Scout)
 
 BeeTree = Room("BeeTree", None, "Home", "Owl", "PicnicArea",
                "There are Pooh and Piglett collecting honey", "none")
@@ -225,7 +234,7 @@ class Hp(Heal):
         super(Hp, self).__init__("hp full heal", "restores all of your health", Hp)
 
     def potion(self):
-        you.hp = you.max_hp
+        Player.hp = Player.max_hp
 
 
 class Defense(Heal):
@@ -253,7 +262,7 @@ class AR(Gun):
         super(AR, self).__init__("AR", "best assault rifle", 25, 3, 35, 500)
 
     def shoot(self, enemy):
-        enemy.hp -= you.attack
+        enemy.hp -= Player.attack
 
 
 class Pistol(Gun):
@@ -261,7 +270,7 @@ class Pistol(Gun):
         super(Pistol, self).__init__("Pistol", "basic firearm", 10, 1, 10, 50)
 
     def shoot(self, enemy):
-        enemy.hp -= you.attack
+        enemy.hp -= Player.attack
 
 
 class Revolver(Gun):
@@ -269,7 +278,7 @@ class Revolver(Gun):
         super(Revolver, self).__init__("Revolver", "most powerful firearm", 6, 3, 40, 100000000)
 
     def shoot(self, enemy):
-        enemy.hp -= you.attack
+        enemy.hp -= Player.attack
 
 
 class BigStick(Weapon):
@@ -285,15 +294,15 @@ class SmallStick(Weapon):
         super(SmallStick, self).__init__("Small Stick", "the start of your great arsenal collection ", 24, 2)
 
     def poke(self, enemy):
-        enemy.hp -= you.attack
+        enemy.hp -= Player.attack
 
 
 class GoodSword(Weapon):
     def __init__(self):
         super(GoodSword, self).__init__("Good Sword", "best melee weapon", 50, 10)
 
-    def slash(self, enemy):
-        enemy.hp -= you.attack
+    def slash(self, Enemy):
+        Enemy.hp -= Player.attack
 
 
 class BadSword(Weapon):
@@ -301,7 +310,7 @@ class BadSword(Weapon):
         super(BadSword, self).__init__("Bad Sword", "still better than any stick", 24, 4)
 
     def slash(self, enemy):
-        enemy.hp -= you.attack
+        enemy.hp -= Player.attack
 
 
 class Key(Item):
@@ -330,6 +339,16 @@ class Nothing(Item):
     def __init__(self):
         super(Nothing, self).__init__("nothing", "nothing here to fight")
 
+
+def encounter():
+        print("%s has set his sights on you" % Enemy.name),
+        print("______________________________________"),
+        print("will you?"),
+        print("1 Fight "
+              "2 Heal "
+              "3 Boost")
+
+
 current_node = Home
 directions = ["north", "south", "east", "west"]
 short_directions = ["n", "s", "e", "w"]
@@ -352,4 +371,3 @@ while True:
     else:
         print("I don't get it")
         print(0)
-
