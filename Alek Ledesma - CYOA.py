@@ -50,7 +50,7 @@ none = Character("none", "none", 0, 0, 0, 0, 0, "nothing")
 
 class Player(Character):
     def __init__(self):
-        super(Player, self).__init__("Christopher Robin", "The child from the 100 Aker Woods", 100, 5, 40, 50, 100)
+        super(Player, self).__init__("Christopher Robin", "The child from the 100 Aker Woods", 100, 5, 40, 50, 100, [])
 
 
 class Scout(Enemy):
@@ -175,48 +175,47 @@ class Boost(Item):
 
 
 class HpTurn3(Boost):
-    def __init__(self):
-        super(HpTurn3, self).__init__("hp 3 turn", "a hp boost that lasts for 3 turns", 'hp', 3, 2)
+    def __init__(self, name, description, increased_stat, num_turns, increase_of_stat):
+        super(HpTurn3, self).__init__(name, description, increased_stat, num_turns, increase_of_stat)
 
     def boost_hp3(self, player):
         player.hp += self.increase_of_stat
 
-
 class HpTurn6(Boost):
-    def __init__(self):
-        super(HpTurn6, self).__init__("hp 6 turn", "a hp boost that lasts for 6 turns", 'hp', 6, 2)
+    def __init__(self, name, description, increased_stat, num_turns, increase_of_stat):
+        super(HpTurn6, self).__init__(name, description, increased_stat, num_turns, increase_of_stat)
 
     def boost_hp6(self, player):
         player.hp += self.increase_of_stat
 
 
 class AttackTurn3(Boost):
-    def __init__(self):
-        super(AttackTurn3, self).__init__("Attack 3 turn", "attack boost that lasts for 3 turns", 'attack', 3, 2)
+    def __init__(self, name, description, increased_stat, num_turns, increase_of_stat):
+        super(AttackTurn3, self).__init__(name, description, increased_stat, num_turns, increase_of_stat)
 
     def boost_attack3(self, player):
         player.attack += self.increase_of_stat
 
 
 class AttackTurn6(Boost):
-    def __init__(self):
-        super(AttackTurn6, self).__init__("Attack 6 turn", "attack boost that lasts for 6 turns", 'attack', 6, 2)
+    def __init__(self, name, description, increased_stat, num_turns, increase_of_stat):
+        super(AttackTurn6, self).__init__(name, description, increased_stat, num_turns, increase_of_stat)
 
     def boost_attack6(self, player):
         player.attack += self.increase_of_stat
 
-
 class DefenseTurn3(Boost):
-    def __init__(self):
+    def __init__(self, name, description, increased_stat, num_turns, increase_of_stat):
         super(DefenseTurn3, self).__init__("Defense boost 3", "a defense boost that lasts for 3 turns", 'defense', 6, 2)
 
     def boost_defense3(self, player):
         player.defense += self.increase_of_stat
 
 
+
 class DefenseTurn6(Boost):
-    def __init__(self):
-        super(DefenseTurn6, self).__init__("Defense boost 6", "a defense boost that lasts for 6 turns", 'defense', 6, 2)
+    def __init__(self, name, description, increased_stat, num_turns, increase_of_stat):
+        super(DefenseTurn6, self).__init__(name, description, increased_stat, num_turns, increase_of_stat)
 
     def boost_defense6(self, player):
         player.defense += self.increase_of_stat
@@ -257,44 +256,45 @@ class Gun(Weapon):
         self.durability = durability
 
 
-class AR(Gun):
+class ar(Gun):
+    def __init__(self, name, description, capacity, durability, damage, uses):
+        super(ar, self).__init__(name, description, capacity, durability, damage, uses)
+
+    def shoot(self, Enemy):
+        Enemy.hp -= Player.attack
+
+AR = ar("AR", "best assault rifle", 25, 3, 35, 500)
+
+class pistol(Gun):
     def __init__(self):
-        super(AR, self).__init__("AR", "best assault rifle", 25, 3, 35, 500)
+        super(pistol, self).__init__("Pistol", "basic firearm", 10, 1, 10, 50)
 
-    def shoot(self, enemy):
-        enemy.hp -= Player.attack
-
-
-class Pistol(Gun):
-    def __init__(self):
-        super(Pistol, self).__init__("Pistol", "basic firearm", 10, 1, 10, 50)
-
-    def shoot(self, enemy):
-        enemy.hp -= Player.attack
-
+    def shoot(self, Enemy):
+        Enemy.hp -= Player.attack
+Pistol = pistol()
 
 class Revolver(Gun):
     def __init__(self):
         super(Revolver, self).__init__("Revolver", "most powerful firearm", 6, 3, 40, 100000000)
 
-    def shoot(self, enemy):
-        enemy.hp -= Player.attack
+    def shoot(self, Enemy):
+        Enemy.hp -= Player.attack
 
 
 class BigStick(Weapon):
     def __init__(self):
         super(BigStick, self).__init__("Big Stick", "a melee weapon", 12, 4)
 
-    def poke(self, enemy, BigStick):
-        enemy.hp -= BigStick.damage
+    def poke(self, Enemy, BigStick):
+        Enemy.hp -= BigStick.damage
 
 
 class SmallStick(Weapon):
     def __init__(self):
         super(SmallStick, self).__init__("Small Stick", "the start of your great arsenal collection ", 24, 2)
 
-    def poke(self, enemy):
-        enemy.hp -= Player.attack
+    def poke(self, Enemy):
+        Enemy.hp -= Player.attack
 
 
 class GoodSword(Weapon):
@@ -338,6 +338,20 @@ class SpecialRock(Key):
 class Nothing(Item):
     def __init__(self):
         super(Nothing, self).__init__("nothing", "nothing here to fight")
+
+
+HP3 = HpTurn3("hp 3 turn", "a hp boost that lasts for 3 turns", 'hp', 3, 2)
+
+HP6 = HpTurn6("hp 6 turn", "a hp boost that lasts for 6 turns", 'hp', 6, 2)
+
+ATCK3 = AttackTurn3("Attack 3 turn", "attack boost that lasts for 3 turns", 'attack', 3, 2)
+
+ATCK6 = AttackTurn6 ("Attack 6 turn", "attack boost that lasts for 6 turns", 'attack', 6, 2)
+
+DEF3 = DefenseTurn3("Defense boost 3", "a defense boost that lasts for 3 turns", 'defense', 3, 2)
+
+DEF6 = DefenseTurn6("Defense boost 6", "a defense boost that lasts for 6 turns", 'defense', 6, 2)
+
 
 
 def encounter():
