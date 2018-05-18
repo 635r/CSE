@@ -33,7 +33,7 @@ class Character(object):
 
 
 class Enemy(Character):
-    def __init__(self,  name, description, hp, attack, defense, luck, max_hp, inventory):
+    def __init__(self, name, description, hp, attack, defense, luck, max_hp, inventory):
             super(Enemy, self).__init__(name, description, hp, attack, defense, luck, max_hp, inventory)
 
     your_inv = {}
@@ -49,39 +49,46 @@ none = Character("none", "none", 0, 0, 0, 0, 0, "nothing")
 
 
 class Player(Character):
-    def __init__(self):
-        super(Player, self).__init__("Christopher Robin", "The child from the 100 Aker Woods", 100, 5, 40, 50, 100, [])
+    def __init__(self, name, description, hp, attack, defense, luck, max_hp, inventory):
+        super(Player, self).__init__(name, description, hp, attack, defense, luck, max_hp, inventory)
 
+Player = Player("Christopher Robin", "The child from the 100 Aker Woods", 100, 5, 40, 50, 100, [])
 
 class Scout(Enemy):
-    def __init__(self):
-        super(Scout, self).__init__("Scout", "A surveyor for the US Army", 24, 10, 0, 2, 24, Revolver)
+    def __init__(self, name, description, hp, attack, defense, luck, max_hp, inventory):
+        super(Scout, self).__init__(name, description, hp, attack, defense, luck, max_hp, inventory)
 
+Scout = Scout("Scout", "A surveyor for the US Army", 24, 10, 0, 2, 24, Revolver)
 
 class Soldier(Enemy):
-    def __init__(self):
-        super(Soldier, self).__init__("Soldier", "Proud soldier of US Army", 50, 20, 10, 3, 50, AR)
+    def __init__(self, name, description, hp, attack, defense, luck, max_hp, inventory):
+        super(Soldier, self).__init__(name, description, hp, attack, defense, luck, max_hp, inventory)
 
+Soldier = Soldier("Soldier", "Proud soldier of US Army", 50, 20, 10, 3, 50, AR)
 
 class Turret(Enemy):
-    def __init__(self):
-        super(Turret, self).__init__("Auto Turret", "A fully unmanned turret", 12, 13, 20, 0, 12, Pistol)
+    def __init__(self, name, description, hp, attack, defense, luck, max_hp, inventory):
+        super(Turret, self).__init__(name, description, hp, attack, defense, luck, max_hp, inventory)
 
+Turret = Turret("Auto Turret", "A fully unmanned turret", 12, 13, 20, 0, 12, Pistol)
 
 class Seal6(Enemy):
-    def __init__(self):
-        super(Seal6, self).__init__("Seal Team 6", "The best in the USA", 666, 25, 80, 7, 666, AR)
+    def __init__(self, name, description, hp, attack, defense, luck, max_hp, inventory):
+        super(Seal6, self).__init__(name, description, hp, attack, defense, luck, max_hp, inventory)
 
+Seal6 = Seal6("Seal Team 6", "The best in the USA", 666, 25, 80, 7, 666, AR)
 
 class Pooh(Enemy):
-    def __init__(self):
-        super(Pooh, self).__init__("Winnie the Pooh", "The lovable bear friend", 1, 30, 0, 0, 1, GoodSword)
+    def __init__(self, name, description, hp, attack, defense, luck, max_hp, inventory):
+        super(Pooh, self).__init__(name, description, hp, attack, defense, luck, max_hp, inventory)
 
+Pooh = Pooh("Winnie the Pooh", "The lovable bear friend", 1, 30, 0, 0, 1, GoodSword)
 
 class Piglett(Enemy):
-    def __init__(self):
-        super(Piglett, self).__init__("Piglett", "your timid friend Piglett", 1, 5, 0, 100, 1, BigStick)
+    def __init__(self, name, description, hp, attack, defense, luck, max_hp, inventory):
+        super(Piglett, self).__init__(name, description, hp, attack, defense, luck, max_hp, inventory)
 
+Piglett = Piglett("Piglett", "your timid friend Piglett", 1, 5, 0, 100, 1, BigStick)
 
 class Tigr(Enemy):
     def __init__(self):
