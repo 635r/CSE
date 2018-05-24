@@ -1,17 +1,183 @@
-
-class Room(object):
-    def __init__(self, name, north, south, east, west, description, enemy_in_room):
+class Item(object):
+    def __init__(self, name, description):
         self.name = name
         self.description = description
-        self.north = north
-        self.south = south
-        self.east = east
-        self.west = west
-        self.enemy_in_room = enemy_in_room
 
-    def move(self, direction):
-        global current_node
-        current_node = globals()[getattr(self, direction)]
+
+class Boost(Item):
+    def __init__(self, name, description, increased_stat, num_turns, increase_of_stat):
+        super(Boost, self).__init__(name, description)
+        self.increased_stat = increased_stat
+        self.num_turns = num_turns
+        self.increase_of_stat = increase_of_stat
+
+
+class HpTurn3(Boost):
+    def __init__(self, name, description, increased_stat, num_turns, increase_of_stat):
+        super(HpTurn3, self).__init__(name, description, increased_stat, num_turns, increase_of_stat)
+
+    def boost_hp3(self, player):
+        player.hp += self.increase_of_stat
+
+
+class HpTurn6(Boost):
+    def __init__(self, name, description, increased_stat, num_turns, increase_of_stat):
+        super(HpTurn6, self).__init__(name, description, increased_stat, num_turns, increase_of_stat)
+
+    def boost_hp6(self, player):
+        player.hp += self.increase_of_stat
+
+
+class AttackTurn3(Boost):
+    def __init__(self, name, description, increased_stat, num_turns, increase_of_stat):
+        super(AttackTurn3, self).__init__(name, description, increased_stat, num_turns, increase_of_stat)
+
+    def boost_attack3(self, player):
+        player.attack += self.increase_of_stat
+
+
+class AttackTurn6(Boost):
+    def __init__(self, name, description, increased_stat, num_turns, increase_of_stat):
+        super(AttackTurn6, self).__init__(name, description, increased_stat, num_turns, increase_of_stat)
+
+    def boost_attack6(self, player):
+        player.attack += self.increase_of_stat
+
+
+class DefenseTurn3(Boost):
+    def __init__(self, name, description, increased_stat, num_turns, increase_of_stat):
+        super(DefenseTurn3, self).__init__(name, description, increased_stat, num_turns, increase_of_stat)
+
+    def boost_defense3(self, player):
+        player.defense += self.increase_of_stat
+
+
+class DefenseTurn6(Boost):
+    def __init__(self, name, description, increased_stat, num_turns, increase_of_stat):
+        super(DefenseTurn6, self).__init__(name, description, increased_stat, num_turns, increase_of_stat)
+
+    def boost_defense6(self, player):
+        player.defense += self.increase_of_stat
+
+
+class Heal(Item):
+    def __init__(self, name, description, restore):
+        super(Heal, self).__init__(name, description)
+        self.restore = restore
+
+
+class Hp(Heal):
+    def __init__(self, restore_hp):
+        self.restore_hp = restore_hp
+        super(Hp, self).__init__("hp full heal", "restores all of your health", Hp)
+
+    def potion(self):
+        Player.hp = Player.max_hp
+
+
+class Defense(Heal):
+    def __init__(self, restore):
+        self.restore = restore
+        super(Defense, self).__init__("Defense full heal", "restore all of your defense", Defense)
+
+
+class Weapon(Item):
+    def __init__(self, name, description, damage, uses):
+        super(Weapon, self).__init__(name, description)
+        self.damage = damage
+        self.uses = uses
+
+
+class Gun(Weapon):
+    def __init__(self, name, description, capacity, durability, damage, uses):
+        super(Gun, self).__init__(name, description, damage, uses)
+        self.capacity = capacity
+        self.durability = durability
+
+
+class Ar(Gun):
+    def __init__(self, name, description, capacity, durability, damage, uses):
+        super(Ar, self).__init__(name, description, capacity, durability, damage, uses)
+
+    def shoot(self, enemy):
+        enemy.hp -= Player.attack
+
+
+class Pist(Gun):
+    def __init__(self, name, description, capacity, durability, damage, uses):
+        super(Pist, self).__init__(name, description, capacity, durability, damage, uses)
+
+    def shoot(self, enemy):
+        enemy.hp -= Player.attack
+
+
+class Rev(Gun):
+    def __init__(self, name, description, capacity, durability, damage, uses):
+        super(Rev, self).__init__(name, description, capacity, durability, damage, uses)
+
+    def shoot(self, enemy):
+        enemy.hp -= Player.attack
+
+
+class BS(Weapon):
+    def __init__(self, name, description, damage, uses):
+        super(BS, self).__init__(name, description, damage, uses)
+
+    def poke(self, enemy, BS):
+        enemy.hp -= BS.damage
+
+
+class SS(Weapon):
+    def __init__(self, name, description, damage, uses):
+        super(SS, self).__init__(name, description, damage, uses)
+
+    def poke(self, enemy):
+        enemy.hp -= Player.attack
+
+
+class GSwrd(Weapon):
+    def __init__(self, name, description, damage, uses):
+        super(GSwrd, self).__init__(name, description, damage, uses)
+
+    def slash(self, enemy):
+        enemy.hp -= Player.attack
+
+
+class BSwrd(Weapon):
+    def __init__(self, name, description, damage, uses):
+        super(BSwrd, self).__init__(name, description, damage, uses)
+
+    def slash(self, enemy):
+        enemy.hp -= Player.attack
+
+
+class Key(Item):
+    def __init__(self, unlock, name, description):
+        super(Key, self).__init__(name, description)
+        self.unlock = unlock
+
+
+class MilSecCrd(Key):
+    def __init__(self):
+        super(MilSecCrd, self).__init__("MilBase", "Security card unlocks the secure base",
+                                        "Military Security Card")
+
+    def unlock(self, MilBase):
+        MilBase.locked = MilBase.woke
+
+
+class SpecialRock(Key):
+    def __init__(self):
+        super(SpecialRock, self).__init__("Pooh", "The Special Rock",
+                                          "the special rock that'll get Pooh's attention ")
+
+    def unlock(self, Pooh):
+        Pooh.locked = Pooh.woke
+
+
+class Nothing(Item):
+    def __init__(self):
+        super(Nothing, self).__init__("nothing", "nothing here to fight")
 
 
 class Character(object):
@@ -43,12 +209,6 @@ def ded(you):
         if you.hp <= 0 or you.hp == 0:
             print("oof, you ded")
             quit(0)
-
-
- #------------------------- C H A R A C T E R  C L A S S E S ------------------------------------------------------------
-
-
-none = Character("None", "None", 0, 0, 0, 0, 0, "nothing")
 
 
 class Player(Character):
@@ -95,218 +255,67 @@ class Heffalump(Enemy):
     def __init__(self, name, description, hp, attack, defense, luck, max_hp, inventory):
         super(Heffalump, self).__init__(name, description, hp, attack, defense, luck, max_hp, inventory)
 
-        class Item(object):
-            def __init__(self, name, description):
-                self.name = name
-                self.description = description
-
-        class Boost(Item):
-            def __init__(self, name, description, increased_stat, num_turns, increase_of_stat):
-                super(Boost, self).__init__(name, description)
-                self.increased_stat = increased_stat
-                self.num_turns = num_turns
-                self.increase_of_stat = increase_of_stat
-
-        class HpTurn3(Boost):
-            def __init__(self, name, description, increased_stat, num_turns, increase_of_stat):
-                super(HpTurn3, self).__init__(name, description, increased_stat, num_turns, increase_of_stat)
-
-            def boost_hp3(self, player):
-                player.hp += self.increase_of_stat
-
-        class HpTurn6(Boost):
-            def __init__(self, name, description, increased_stat, num_turns, increase_of_stat):
-                super(HpTurn6, self).__init__(name, description, increased_stat, num_turns, increase_of_stat)
-
-            def boost_hp6(self, player):
-                player.hp += self.increase_of_stat
-
-        class AttackTurn3(Boost):
-            def __init__(self, name, description, increased_stat, num_turns, increase_of_stat):
-                super(AttackTurn3, self).__init__(name, description, increased_stat, num_turns, increase_of_stat)
-
-            def boost_attack3(self, player):
-                player.attack += self.increase_of_stat
 
-        class AttackTurn6(Boost):
-            def __init__(self, name, description, increased_stat, num_turns, increase_of_stat):
-                super(AttackTurn6, self).__init__(name, description, increased_stat, num_turns, increase_of_stat)
+class Room(object):
+    def __init__(self, name, north, south, east, west, description, enemy_in_room):
+        self.name = name
+        self.description = description
+        self.north = north
+        self.south = south
+        self.east = east
+        self.west = west
+        self.enemy_in_room = enemy_in_room
 
-            def boost_attack6(self, player):
-                player.attack += self.increase_of_stat
+    def move(self, direction):
+        global current_node
+        current_node = globals()[getattr(self, direction)]
 
-        class DefenseTurn3(Boost):
-            def __init__(self, name, description, increased_stat, num_turns, increase_of_stat):
-                super(DefenseTurn3, self).__init__(name, description, increased_stat, num_turns, increase_of_stat)
 
-            def boost_defense3(self, player):
-                player.defense += self.increase_of_stat
+AR = Ar("AR", "best assault rifle", 25, 3, 35, 500)
 
-        class DefenseTurn6(Boost):
-            def __init__(self, name, description, increased_stat, num_turns, increase_of_stat):
-                super(DefenseTurn6, self).__init__(name, description, increased_stat, num_turns, increase_of_stat)
-
-            def boost_defense6(self, player):
-                player.defense += self.increase_of_stat
-
-        class Heal(Item):
-            def __init__(self, name, description, restore):
-                super(Heal, self).__init__(name, description)
-                self.restore = restore
+Pistol = Pist("Pistol", "basic firearm", 10, 1, 10, 50)
 
-        class Hp(Heal):
-            def __init__(self, restore_hp):
-                self.restore_hp = restore_hp
-                super(Hp, self).__init__("hp full heal", "restores all of your health", Hp)
+Revolver = Rev("Revolver", "most powerful firearm", 6, 3, 40, 100000000)
 
-            def potion(self):
-                Player.hp = Player.max_hp
+GoodSword = GSwrd("Good Sword", "best melee weapon", 50, 10)
 
-        class Defense(Heal):
-            def __init__(self, restore):
-                self.restore = restore
-                super(Defense, self).__init__("Defense full heal", "restore all of your defense", Defense)
+BadSword = BSwrd("Bad Sword", "still better than any stick", 24, 4)
 
-        class Weapon(Item):
-            def __init__(self, name, description, damage, uses):
-                super(Weapon, self).__init__(name, description)
-                self.damage = damage
-                self.uses = uses
+BigStick = BS("Big Stick", "a melee weapon", 12, 4)
 
-        class Gun(Weapon):
-            def __init__(self, name, description, capacity, durability, damage, uses):
-                super(Gun, self).__init__(name, description, damage, uses)
-                self.capacity = capacity
-                self.durability = durability
+SmallStick = SS("Small Stick", "the start of your great arsenal collection ", 24, 2)
 
-        class Ar(Gun):
-            def __init__(self, name, description, capacity, durability, damage, uses):
-                super(Ar, self).__init__(name, description, capacity, durability, damage, uses)
 
-            def shoot(self, Enemy):
-                Enemy.hp -= Player.attack
+HP3 = HpTurn3("hp 3 turn", "a hp boost that lasts for 3 turns", 'hp', 3, 2)
 
-        class Pist(Gun):
-            def __init__(self, name, description, capacity, durability, damage, uses):
-                super(Pist, self).__init__(name, description, capacity, durability, damage, uses)
+HP6 = HpTurn6("hp 6 turn", "a hp boost that lasts for 6 turns", 'hp', 6, 2)
 
-            def shoot(self, Enemy):
-                Enemy.hp -= Player.attack
+ATCK3 = AttackTurn3("Attack 3 turn", "attack boost that lasts for 3 turns", 'attack', 3, 2)
 
-        class Rev(Gun):
-            def __init__(self, name, description, capacity, durability, damage, uses):
-                super(Rev, self).__init__(name, description, capacity, durability, damage, uses)
+ATCK6 = AttackTurn6("Attack 6 turn", "attack boost that lasts for 6 turns", 'attack', 6, 2)
 
-            def shoot(self, Enemy):
-                Enemy.hp -= Player.attack
+DEF3 = DefenseTurn3("Defense boost 3", "a defense boost that lasts for 3 turns", 'defense', 3, 2)
 
-        class BS(Weapon):
-            def __init__(self, name, description, damage, uses):
-                super(BS, self).__init__(name, description, damage, uses)
+DEF6 = DefenseTurn6("Defense boost 6", "a defense boost that lasts for 6 turns", 'defense', 6, 2)
 
-            def poke(self, Enemy, BS):
-                Enemy.hp -= BS.damage
 
-        class SS(Weapon):
-            def __init__(self, name, description, damage, uses):
-                super(SS, self).__init__(name, description, damage, uses)
+Player = Player("Christopher Robin", "The child from the 100 Aker Woods", 100, 5, 40, 50, 100, [])
 
-            def poke(self, Enemy):
-                Enemy.hp -= Player.attack
+Scout = Scout("Scout", "A surveyor for the US Army", 24, 10, 0, 2, 24, Revolver)
 
-        class GSwrd(Weapon):
-            def __init__(self, name, description, damage, uses):
-                super(GSwrd, self).__init__(name, description, damage, uses)
+Soldier = Soldier1("Soldier", "Proud soldier of US Army", 50, 20, 10, 3, 50, AR)
 
-            def slash(self, Enemy):
-                Enemy.hp -= Player.attack
+Turret = Turret("Auto Turret", "A fully unmanned turret", 12, 13, 20, 0, 12, Pistol)
 
-        class BSwrd(Weapon):
-            def __init__(self, name, description, damage, uses):
-                super(BSwrd, self).__init__(name, description, damage, uses)
+Seal6 = Seal6("Seal Team 6", "The best in the USA", 666, 25, 80, 7, 666, AR)
 
-            def slash(self, enemy):
-                enemy.hp -= Player.attack
+Pooh = Pooh("Winnie the Pooh", "The lovable bear friend", 1, 30, 0, 0, 1, GoodSword)
 
-        class Key(Item):
-            def __init__(self, unlock, name, description):
-                super(Key, self).__init__(name, description)
-                self.unlock = unlock
+Piglett = Piglett("Piglett", "your timid friend Piglett", 1, 5, 0, 100, 1, BigStick)
 
-        class MilSecCrd(Key):
-            def __init__(self):
-                super(MilSecCrd, self).__init__("MilBase", "Security card unlocks the secure base",
-                                                "Military Security Card")
+Tigr = Tigr("Tigr", "The bounciest friend you'll ever know", 1, 10, 0, 50, 1, BigStick)
 
-            def unlock(self, MilBase):
-                MilBase.locked = MilBase.woke
-
-        class SpecialRock(Key):
-            def __init__(self):
-                super(SpecialRock, self).__init__("Pooh", "The Special Rock",
-                                                  "the special rock that'll get Pooh's attention ")
-
-            def unlock(self, Pooh):
-                Pooh.locked = Pooh.woke
-
-        class Nothing(Item):
-            def __init__(self):
-                super(Nothing, self).__init__("nothing", "nothing here to fight")
-
-        # -------------------------------------------
-
-        AR = Ar("AR", "best assault rifle", 25, 3, 35, 500)
-
-        Pistol = Pist("Pistol", "basic firearm", 10, 1, 10, 50)
-
-        Revolver = Rev("Revolver", "most powerful firearm", 6, 3, 40, 100000000)
-
-        # ----------------------------------------M E L E E ---------------------------------------------------------------------
-
-        GoodSword = GSwrd("Good Sword", "best melee weapon", 50, 10)
-
-        BadSword = BSwrd("Bad Sword", "still better than any stick", 24, 4)
-
-        BigStick = BS("Big Stick", "a melee weapon", 12, 4)
-
-        SmallStick = SS("Small Stick", "the start of your great arsenal collection ", 24, 2)
-
-        # ---------------------------------------B O O S T S---------------------------------------------------------------------
-
-        HP3 = HpTurn3("hp 3 turn", "a hp boost that lasts for 3 turns", 'hp', 3, 2)
-
-        HP6 = HpTurn6("hp 6 turn", "a hp boost that lasts for 6 turns", 'hp', 6, 2)
-
-        ATCK3 = AttackTurn3("Attack 3 turn", "attack boost that lasts for 3 turns", 'attack', 3, 2)
-
-        ATCK6 = AttackTurn6("Attack 6 turn", "attack boost that lasts for 6 turns", 'attack', 6, 2)
-
-        DEF3 = DefenseTurn3("Defense boost 3", "a defense boost that lasts for 3 turns", 'defense', 3, 2)
-
-        DEF6 = DefenseTurn6("Defense boost 6", "a defense boost that lasts for 6 turns", 'defense', 6, 2)
-
-        # ------------------------------- C H A R A C T E R----------------------------------------------------------------------
-
-        Player = Player("Christopher Robin", "The child from the 100 Aker Woods", 100, 5, 40, 50, 100, [])
-
-        Scout = Scout("Scout", "A surveyor for the US Army", 24, 10, 0, 2, 24, Revolver)
-
-        Soldier = Soldier1("Soldier", "Proud soldier of US Army", 50, 20, 10, 3, 50, AR)
-
-        Turret = Turret("Auto Turret", "A fully unmanned turret", 12, 13, 20, 0, 12, Pistol)
-
-        Seal6 = Seal6("Seal Team 6", "The best in the USA", 666, 25, 80, 7, 666, AR)
-
-        Pooh = Pooh("Winnie the Pooh", "The lovable bear friend", 1, 30, 0, 0, 1, GoodSword)
-
-        Piglett = Piglett("Piglett", "your timid friend Piglett", 1, 5, 0, 100, 1, BigStick)
-
-        Tigr = Tigr("Tigr", "The bounciest friend you'll ever know", 1, 10, 0, 50, 1, BigStick)
-
-        Heffalump = Heffalump("Heffalump", "A bonus round", 900, 20, 2, 0, 4000, AR)
-
-
-        #----------------------------- R O O M S -------------------------------------
+Heffalump = Heffalump("Heffalump", "A bonus round", 900, 20, 2, 0, 4000, AR)
 
 
 Home = Room("Home", "NorthHome", "SouthHome", "EastHome", "WestHome",
@@ -376,21 +385,6 @@ BeeTree = Room("BeeTree", None, "Home", "Owl", "PicnicArea",
                "There are Pooh and Piglett collecting honey", "None")
 
 
-
-# print("%s has set his sights on you" % current_node.enemy_in_room.name)
-# print("______________________________________")
-# print("What will you do?")
-# print("1 Fight\n2 Heal\n3 Boost")
-# if command == 1:
-#     print("You died")
-# if command == 2:
-#     print("You died")
-# if command == 3:
-#     print("You died")
-# print("%s has set his sights on you" % current_node.enemy_in_room.name)
-# print(current_node.enemy_in_room.description)
-
-
 current_node = Home
 directions = ["north", "south", "east", "west"]
 short_directions = ["n", "s", "e", "w"]
@@ -428,4 +422,3 @@ while True:
     else:
         print("I don't get it")
         print(0)
-
