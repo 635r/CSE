@@ -398,8 +398,9 @@ while True:
         quit(0)
 
     if current_node.enemy_in_room is not None:
-        print("%s has set his sights on you" % current_node.enemy_in_room.name)
         print("______________________________________")
+        print("%s has set his sights on you" % current_node.enemy_in_room.name)
+        print(current_node.enemy_in_room.description)
         print("What will you do?")
         print("1 Fight\n2 Heal\n3 Boost")
         if command == 1:
@@ -408,8 +409,7 @@ while True:
             print("You died")
         if command == 3:
             print("You died")
-        print("%s has set his sights on you" % current_node.enemy_in_room.name)
-        print(current_node.enemy_in_room.description)
+
 
     elif command in short_directions:
         pos = short_directions.index(command)
