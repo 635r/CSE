@@ -197,18 +197,15 @@ class Character(object):
     def damage(self, enemy):
         self.hp -= enemy.attack - self.defense
 
+    def ded(you):
+        if you.hp <= 0 or you.hp == 0:
+            print("oof, you ded")
+            quit(0)
+
 
 class Enemy(Character):
     def __init__(self, name, description, hp, attack, defense, luck, max_hp, inventory):
             super(Enemy, self).__init__(name, description, hp, attack, defense, luck, max_hp, inventory)
-
-    your_inv = {}
-
-
-def ded(you):
-        if you.hp <= 0 or you.hp == 0:
-            print("oof, you ded")
-            quit(0)
 
 
 class Player(Character):
@@ -270,6 +267,13 @@ class Room(object):
         global current_node
         current_node = globals()[getattr(self, direction)]
 
+# def encounter():
+#     print("Boosted %s by %s for %s turns." %  % your_inv.Boost.increase_of_stats %your_inv.Boost.num_turns)
+#     your_inv.Boost = used_items.Boost
+#     your_inv.remove()
+#     if current_node.enemy_in_room.hp <= 0 or Player.hp <= 0:
+#         used_items.Boost = your_inv.Boost
+
 
 AR = Ar("AR", "best assault rifle", 25, 3, 35, 500)
 
@@ -283,23 +287,39 @@ BadSword = BSwrd("Bad Sword", "still better than any stick", 24, 4)
 
 BigStick = BS("Big Stick", "a melee weapon", 12, 4)
 
-SmallStick = SS("Small Stick", "the start of your great arsenal collection ", 24, 2)
+SmallStick = SS("Small Stick", "the start of your great arsenal collection ", 24, 20)
 
 
-HP3 = HpTurn3("hp 3 turn", "a hp boost that lasts for 3 turns", 'hp', 3, 2)
+HP3 = HpTurn3("hp 3 turn", "a hp boost that lasts for 3 turns", 'hp', 3, 20)
 
-HP6 = HpTurn6("hp 6 turn", "a hp boost that lasts for 6 turns", 'hp', 6, 2)
+HP6 = HpTurn6("hp 6 turn", "a hp boost that lasts for 6 turns", 'hp', 6, 20)
 
-ATCK3 = AttackTurn3("Attack 3 turn", "attack boost that lasts for 3 turns", 'attack', 3, 2)
+ATCK3 = AttackTurn3("Attack 3 turn", "attack boost that lasts for 3 turns", 'attack', 3, 5)
 
-ATCK6 = AttackTurn6("Attack 6 turn", "attack boost that lasts for 6 turns", 'attack', 6, 2)
+ATCK6 = AttackTurn6("Attack 6 turn", "attack boost that lasts for 6 turns", 'attack', 6, 5)
 
-DEF3 = DefenseTurn3("Defense boost 3", "a defense boost that lasts for 3 turns", 'defense', 3, 2)
+DEF3 = DefenseTurn3("Defense boost 3", "a defense boost that lasts for 3 turns", 'defense', 3, 20)
 
-DEF6 = DefenseTurn6("Defense boost 6", "a defense boost that lasts for 6 turns", 'defense', 6, 2)
+DEF6 = DefenseTurn6("Defense boost 6", "a defense boost that lasts for 6 turns", 'defense', 6, 20)
 
 
-Player = Player("Christopher Robin", "The child from the 100 Aker Woods", 100, 5, 40, 50, 100, [])
+# # the_count = [1,2,3,4,5]
+# # characters = ['graves', 'dory', 'boots', 'dora', 'shrek', 'obi-wan', 'Chin Chin']
+# # print(characters[4])
+
+# # #removing characters from a list
+# # characters.remove("shrek")
+# # print(characters)
+
+# # # adding to a list
+# # characters.append('batman')
+# # characters.append('Francis of the Filth')
+# # print(characters)
+
+your_inv = [HP3, HP6, ATCK3, ATCK6, DEF3, DEF6]
+used_items = []
+
+Player = Player("Christopher Robin", "The child from the 100 Aker Woods", 100, 5, 40, 50, 100, your_inv)
 
 Scout = Scout("Scout", "A surveyor for the US Army", 24, 10, 0, 2, 24, Revolver)
 
@@ -404,12 +424,81 @@ while True:
         print("What will you do?")
         print("1 Fight\n2 Heal\n3 Boost")
         if command == 1:
-            print("You died")
-        if command == 2:
-            print("You died")
-        if command == 3:
-            print("You died")
+            print("which weapon?")
+            if command == 10:
+                print("attacked with a melee weapon")
+                Player.attack += BigStick.damage
+                current_node.enemy_in_room.hp -= Player.attack
+                Player.hp -= current_node.enemy_in_room.damage(current_node.enemy_in_room.enemy)
+                print("oof, enemy %s hit you" % current_node.enemy_in_room.name)
 
+            if command == 11:
+                print("attacked with a gun")
+                current_node.enemy_in_room.hp -= Ar.shoot(AR, current_node.enemy_in_room)
+                Player.hp -= current_node.enemy_in_room.damage(current_node.enemy_in_room.enemy)
+                print("oof, enemy %s hit you" % current_node.enemy_in_room.name)
+        if command == 2:
+            print("healed completely")
+            if Player.hp <= Player.max_hp:
+                Player.hp == Player.max_hp
+                Player.hp -= current_node.enemy_in_room.damage(current_node.enemy_in_room.enemy)
+                print("oof, enemy %s hit you" % current_node.enemy_in_room.name)
+
+        if command == 3:
+            print("Which boost?")
+            print("4 DEF1\n5 DEF2\n6 ATTACK1\n7 ATTACK2\n8 HP1\n9 HP2")
+            if command == 4:
+                print("Boosted defense by 20")
+                Player.defense += 20
+                your_inv.remove(DEF3)
+                used_items.append(DEF3)
+                Player.hp -= current_node.enemy_in_room.damage(current_node.enemy_in_room.enemy)
+                print("oof, enemy %s hit you" % current_node.enemy_in_room.name)
+
+            if command == 5:
+                print("Boosted defense by 40")
+                Player.defense += 40
+                your_inv.remove(DEF6)
+                used_items.append(DEF6)
+                Player.hp -= current_node.enemy_in_room.damage(current_node.enemy_in_room.enemy)
+                print("oof, enemy %s hit you" % current_node.enemy_in_room.name)
+
+            if command == 6:
+                print("Boosted attack by 20")
+                Player.attack += 20
+                your_inv.remove(ATCK3)
+                used_items.append(ATCK3)
+                Player.hp -= current_node.enemy_in_room.damage(current_node.enemy_in_room.enemy)
+                print("oof, enemy %s hit you" % current_node.enemy_in_room.name)
+
+            if command == 7:
+                print("Boosted attack by 40")
+                Player.attack += 40
+                your_inv.remove(ATCK6)
+                used_items.append(ATCK6)
+                Player.hp -= current_node.enemy_in_room.damage(current_node.enemy_in_room.enemy)
+                print("oof, enemy %s hit you" % current_node.enemy_in_room.name)
+
+            if command == 8:
+                print("Boosted hp by 20")
+                Player.hp += 20
+                your_inv.remove(HP3)
+                used_items.append(HP3)
+                Player.hp -= current_node.enemy_in_room.damage(current_node.enemy_in_room.enemy)
+                print("oof, enemy %s hit you" % current_node.enemy_in_room.name)
+
+            if input == 9:
+                print("Boosted hp by 40")
+                Player.hp += 40
+                your_inv.remove(HP6)
+                used_items.append(HP6)
+                Player.hp -= current_node.enemy_in_room.damage(Player, current_node.enemy_in_room)
+                print("oof, enemy %s hit you" % current_node.enemy_in_room.name)
+        if current_node.enemy_in_room.hp == 0:
+            your_inv.append(current_node.enemy_in_room.inventory)
+            current_node.enemy_in_room.remove(current_node.enemy_in_room.enemy)
+            current_node.enemy_in_room.append(None)
+            your_inv.append(used_items)
 
     elif command in short_directions:
         pos = short_directions.index(command)
